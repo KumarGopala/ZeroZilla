@@ -73,6 +73,48 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/orderSuccess.html"
     });
 
+
+    /*only ui*/
+
+
+    $routeProvider.when("/academic", {
+        templateUrl: "/app/views/academic.html"
+    });
+
+
+    $routeProvider.when("/authors", {
+        templateUrl: "/app/views/authors.html"
+    });
+
+
+    $routeProvider.when("/blog", {
+        controller: "blogController",
+        templateUrl: "/app/views/blog.html"
+    });
+
+
+    $routeProvider.when("/business", {
+        templateUrl: "/app/views/business1.html"
+    });
+
+
+    $routeProvider.when("/contact", {
+        templateUrl: "/app/views/contact.html"
+    });
+
+
+    $routeProvider.when("/faq", {
+        templateUrl: "/app/views/faq.html"
+    });
+
+    $routeProvider.when("/onlinecontent", {
+        templateUrl: "/app/views/online-content.html"
+    });
+
+    $routeProvider.when("/personal", {
+        templateUrl: "/app/views/personal.html"
+    });
+     
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });

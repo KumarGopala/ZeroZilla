@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\associateController.js" />
+    <Content Include="app\controllers\blogController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\orderRequirementController.js" />
@@ -75,19 +76,28 @@
     <Content Include="app\directive.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\fileUpload.js" />
     <Content Include="app\services\pricingService.js" />
     <Content Include="app\services\sharedPropertiesService.js" />
     <Content Include="app\services\utility.js" />
     <Content Include="app\services\ordersService.js" />
     <Content Include="app\services\tokensManagerService.js" />
+    <Content Include="app\views\academic.html" />
     <Content Include="app\views\associate.html" />
     <None Include="app\views\home.html.exclude" />
+    <Content Include="app\views\authors.html" />
+    <Content Include="app\views\blog.html" />
+    <Content Include="app\views\business1.html" />
+    <Content Include="app\views\contact.html" />
+    <Content Include="app\views\faq.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
+    <Content Include="app\views\online-content.html" />
     <Content Include="app\views\orderRequirments.html" />
     <Content Include="app\views\orderReview.html" />
     <Content Include="app\views\orders.html" />
     <Content Include="app\views\orderSuccess.html" />
+    <Content Include="app\views\personal.html" />
     <Content Include="app\views\pricing.html" />
     <Content Include="app\views\pricing1.html" />
     <Content Include="app\views\refresh.html" />

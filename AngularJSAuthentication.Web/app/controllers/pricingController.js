@@ -25,7 +25,18 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
     }
     
-    
+    $scope.files = [];
+
+    //listen for the file selected event
+    $scope.$on("fileSelected", function (event, args) {
+        $scope.$apply(function () {
+            //add the file object to the scope's files collection
+            $scope.files.push(args.file);
+        });
+    });
+
+    //https://shazwazza.com/post/uploading-files-and-json-data-in-the-same-request-with-angular-js/
+    //https://stackoverflow.com/questions/31987723/unable-to-upload-doc-or-docx-file
     
     
     $scope.PlaceOrder = function () {
