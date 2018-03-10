@@ -68,6 +68,10 @@ app.config(function ($routeProvider) {
     });
 
 
+    $routeProvider.when("/OrderSuccess", {
+        controller: "ordersuccessController",
+        templateUrl: "/app/views/orderSuccess.html"
+    });
 
     $routeProvider.otherwise({ redirectTo: "/home" });
 

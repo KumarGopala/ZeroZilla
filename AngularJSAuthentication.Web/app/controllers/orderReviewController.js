@@ -32,7 +32,8 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
                 }
             }
         ).success(function (data) {
-            $scope.person = data;
+            $location.path('/OrderSuccess');
+
         });
 
 
