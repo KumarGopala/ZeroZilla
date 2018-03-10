@@ -1,0 +1,134 @@
+﻿
+<section class="steps">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <h2 class="heading-1">Get Started in 3 Simple Steps</h2>
+                </div><!--end of col-md-12-->
+            </div><!--end of row-->
+            <br>
+            <!--=====================================-->
+
+            <div class="row row-eq-height">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="step-box">
+                        <div class="step-header">
+                            <h2 class="heading-1">STEP 1</h2>
+                        </div><!--end of step header-->
+
+                        <div class="step-content">
+                            <div class="form-group text-center">
+                                <h3 class="heading-1">Enter Word Count</h3>
+                            </div><!--end of form group-->
+                            <br>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="" data-ng-model="wordCount">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default btn-success" data-ng-click="GetPrice(wordCount,deliveryType)">GO</button>
+                                    </span>
+                                </div><!--end of input-group-->
+                            </div><!--end of form group-->
+
+                            <div class="form-group text-center">
+                                <h3>OR</h3>
+                                <span id="fileselector">
+                                    <label class="btn btn-default btn-danger" for="upload-file-selector">
+                                        <!--<input id="upload-file-selector" type="file">-->
+                                        <input name="upload-file-selector" style="position: absolute; right: 0px; margin: 0px; padding: 0px; font-size: 480px; font-family: sans-serif; cursor: pointer; height: 100%;" type="file">
+                                        <i class="fa_icon icon-upload-alt margin-correction"></i>Upload file
+                                    </label>
+                                </span><br>
+                                (Only .doc, .docx allowed)
+                            </div><!--end of form group-->
+
+                        </div><!--end of step content-->
+                    </div><!--end of step box-->
+                </div><!--end of col-md-4-->
+                <!--=======================================-->
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="step-box">
+                        <div class="step-header">
+                            <h2 class="heading-1">STEP 2</h2>
+                        </div><!--end of step header-->
+
+                        <div class="step-content">
+
+                            <div class="form-group text-center">
+                                <h3 class="heading-1">Choose Delivery Type</h3>
+                            </div><!--end of form group-->
+                            <br>
+                            <div class="form-group has-feedback">
+                                <label class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="radio" name="Express" value="Express Delivery" data-ng-model="deliveryType" />
+                                    </span>
+                                    <div class="form-control form-control-static">
+                                        Express Delivery
+
+                                    </div>
+                                    <span class="glyphicon form-control-feedback "></span>
+                                </label>
+                            </div><!--end of form group-->
+                            <div class="form-group has-feedback ">
+                                <label class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="radio" name="Standard" checked="checked" value="Standard Delivery" data-ng-model="deliveryType" />
+                                    </span>
+                                    <div class="form-control form-control-static">
+                                        Standard Delivery
+                                    </div>
+                                    <span class="glyphicon form-control-feedback "></span>
+                                </label>
+                            </div><!--end of form group-->
+
+                            <div class="form-group has-feedback ">
+                                <label class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="radio" name="Easy" value="Easy Delivery" data-ng-model="deliveryType" />
+                                    </span>
+                                    <div class="form-control form-control-static">
+                                        Easy Delivery
+                                    </div>
+                                    <span class="glyphicon form-control-feedback "></span>
+                                </label>
+                            </div><!--end of form group-->
+                        </div><!--end of step content-->
+                    </div><!--end of step box-->
+                </div><!--end of col-md-4-->
+                <!--=======================================-->
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="step-box">
+                        <div class="step-header">
+                            <h2 class="heading-1">STEP 3</h2>
+                        </div><!--end of step header-->
+
+                        <div class="step-content">
+
+                            <div class="form-group text-center">
+                                <h3 class="heading-1">Get Price Quote</h3>
+                            </div><!--end of form group-->
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control" readonly="readonly" placeholder="Price" data-ng-model="PriceQuote">
+                            </div><!--end of form group-->
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-success submit" data-ng-click="PlaceOrder()">SUBMIT</button>
+                                </div><!--end of form group-->
+
+                        </div><!--end of step content-->
+                    </div><!--end of step box-->
+                </div><!--end of col-md-4-->
+
+
+
+            </div><!--end of row-->
+
+
+        </div><!--end of container-->
+    </div><!--end of container fluid-->
+</section>

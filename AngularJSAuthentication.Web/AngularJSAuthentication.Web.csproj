@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,36 +62,44 @@
     <Content Include="app\controllers\associateController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
+    <Content Include="app\controllers\orderRequirementController.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\orderReviewController.js" />
+    <Content Include="app\controllers\pricingController.js" />
     <Content Include="app\controllers\ordersController.js" />
     <Content Include="app\controllers\refreshController.js" />
+    <Content Include="app\controllers\signinController.js" />
     <Content Include="app\controllers\signupController.js" />
     <Content Include="app\controllers\tokensManagerController.js" />
+    <Content Include="app\directive.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\pricingService.js" />
+    <Content Include="app\services\utility.js" />
     <Content Include="app\services\ordersService.js" />
     <Content Include="app\services\tokensManagerService.js" />
     <Content Include="app\views\associate.html" />
+    <None Include="app\views\home.html.exclude" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
+    <Content Include="app\views\orderRequirments.html" />
+    <Content Include="app\views\orderReview.html" />
     <Content Include="app\views\orders.html" />
+    <Content Include="app\views\pricing.html" />
+    <Content Include="app\views\pricing1.html" />
     <Content Include="app\views\refresh.html" />
+    <Content Include="app\views\signin.html" />
     <Content Include="app\views\signup.html" />
     <Content Include="app\views\tokens.html" />
     <Content Include="authComplete.html" />
-    <Content Include="content\css\font-awesome.min.css" />
-    <Content Include="content\css\loading-bar.css" />
-    <Content Include="content\css\loading-bar.min.css" />
-    <Content Include="content\css\site.css" />
-    <Content Include="content\css\social-buttons.css" />
-    <Content Include="content\fonts\fontawesome-webfont.svg" />
+    <Content Include="content\css\bootstrap-theme.css.map" />
+    <Content Include="content\css\bootstrap-theme.min.css.map" />
+    <Content Include="content\css\bootstrap.css.map" />
+    <Content Include="content\css\bootstrap.min.css.map" />
     <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="content\fonts\fontawesome-webfont.eot" />
-    <Content Include="content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="content\fonts\fontawesome-webfont.woff" />
-    <Content Include="content\fonts\FontAwesome.otf" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\ngauthenticationweb.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -100,12 +110,82 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="content\css\bootstrap-theme.css" />
+    <Content Include="content\css\bootstrap-theme.min.css" />
+    <Content Include="content\css\bootstrap.css" />
     <Content Include="content\css\bootstrap.min.css" />
+    <Content Include="content\css\media.css" />
+    <Content Include="content\css\style.css" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\images\academic-page.jpg" />
+    <Content Include="content\images\academic.png" />
+    <Content Include="content\images\author1.jpg" />
+    <Content Include="content\images\author2.jpg" />
+    <Content Include="content\images\author3.jpg" />
+    <Content Include="content\images\authors.png" />
+    <Content Include="content\images\blog1.jpg" />
+    <Content Include="content\images\blog10.jpg" />
+    <Content Include="content\images\blog2.png" />
+    <Content Include="content\images\blog3.jpg" />
+    <Content Include="content\images\blog4.jpg" />
+    <Content Include="content\images\blog5.jpg" />
+    <Content Include="content\images\blog6.png" />
+    <Content Include="content\images\blog7.jpg" />
+    <Content Include="content\images\blog8.jpg" />
+    <Content Include="content\images\blog9.jpg" />
+    <Content Include="content\images\blogs-img2.jpg" />
+    <Content Include="content\images\blogs-img3.jpg" />
+    <Content Include="content\images\business-main.jpg" />
+    <Content Include="content\images\business.png" />
+    <Content Include="content\images\business1.jpg" />
+    <Content Include="content\images\contact.png" />
+    <Content Include="content\images\content-marketing.png" />
+    <Content Include="content\images\degree1.jpg" />
+    <Content Include="content\images\dummy.png" />
+    <Content Include="content\images\dummy1.png" />
+    <Content Include="content\images\email.png" />
+    <Content Include="content\images\logo.png" />
+    <Content Include="content\images\mail.png" />
+    <Content Include="content\images\main-background.jpg" />
+    <Content Include="content\images\main-img.jpg" />
+    <Content Include="content\images\officebus.jpg" />
+    <Content Include="content\images\online-content.png" />
+    <Content Include="content\images\online1.jpg" />
+    <Content Include="content\images\or.png" />
+    <Content Include="content\images\OR1.png" />
+    <Content Include="content\images\or2.png" />
+    <Content Include="content\images\or3.png" />
+    <Content Include="content\images\personal.png" />
+    <Content Include="content\images\phn 2.png" />
+    <Content Include="content\images\phn.png" />
+    <Content Include="content\images\phn1.png" />
+    <Content Include="content\images\purple-paper-airplane.png" />
+    <Content Include="content\images\resume.jpg" />
+    <Content Include="content\images\resume1.jpg" />
+    <Content Include="content\images\side-image.jpg" />
+    <Content Include="content\images\symbol.png" />
+    <Content Include="content\images\user-blog1.png" />
+    <Content Include="content\images\w-1.png" />
+    <Content Include="content\images\w-2.png" />
+    <Content Include="content\images\w-3.png" />
+    <Content Include="content\images\w-4.png" />
+    <Content Include="content\images\Web.jpg" />
+    <Content Include="content\images\Web1.jpg" />
+    <Content Include="content\images\web2.jpeg" />
+    <Content Include="content\images\Web2.jpg" />
+    <Content Include="content\images\Web3.jpg" />
+    <Content Include="content\images\Web4.jpg" />
+    <Content Include="content\images\Web5.jpg" />
+    <Content Include="content\js\bootstrap.js" />
+    <Content Include="content\js\bootstrap.min.js" />
+    <Content Include="content\js\custom.js" />
+    <Content Include="content\js\npm.js" />
+    <Content Include="content\js\tracking.js" />
     <Content Include="index.html" />
     <Content Include="scripts\angular-local-storage.min.js" />
     <Content Include="scripts\authComplete.js" />
     <Content Include="scripts\loading-bar.min.js" />
+    <Content Include="scripts\SimpleAjaxUploader.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

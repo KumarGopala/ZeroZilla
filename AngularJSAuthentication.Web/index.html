@@ -1,21 +1,50 @@
 ﻿<!DOCTYPE html>
-<html data-ng-app="AngularAuthApp">
+<html data-ng-app="AngularAuthApp" lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>index</title>
 
-    <meta name="keywords" content="angularjs,SPA,Single Page Application,refresh tokens,authentication,bearer token authentication,OWIN,bootstrap,bootstrap ui,tutorial,JS framework,ASP.NET WEB API 2,Taiseer Joudeh" />
-    <meta name="description" content="SPA built using angularjs,authentication is done using bearer token,back end built using Asp.net web api 2 and OWIN Framework,creatd by Taiseer Joudeh" />
-    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
-    <title>AngularJS Authentication</title>
-    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="content/css/site.css" rel="stylesheet" />
-    <link href="content/css/loading-bar.css" rel="stylesheet" />
-    <link href="content/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="content/css/social-buttons.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Bootstrap -->
+    <link href="content/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="content/css/style.css">
+    <link rel="stylesheet" type="text/css" href="content/css/media.css">
+
+    <!--fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+    <section class="top-header" data-ng-controller="indexController">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <ul class="top-list">
+                            <li><h4><span class="icon"><i class="fa fa-phone"></i></span> +1 650 488 4532</h4></li>
+                            <div data-ng-hide="authentication.isAuth">    <a href="#/signin"><li><button type="button" class="btn btn-success">SIGN IN</button></li></a></div>
+                            <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                            <div data-ng-hide="!authentication.isAuth">    <a href="" data-ng-click="logOut()"><li><button type="button" class="btn btn-success">SIGN OUT</button></li></a></div>
+
+                        </ul><!--end of top list-->
+                    </div><!--end of col-md-12-->
+                </div><!--end of row-->
+            </div><!--end of container-->
+        </div><!--end of container fluid-->
+    </section>
+
+    <!--==========================================================-->
+    <!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
         <div class="container">
             <div class="navbar-header">
                 <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
@@ -34,35 +63,381 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="jumbotron">
+    </div>-->
+
+    <nav class="navbar navbar-default navbar-top-fixed navigation ">
         <div class="container">
-            <div class="page-header text-center">
-                <h1>AngularJS Authentication</h1>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="content/images/logo.png" class="img-responsive" width="180"></a>
             </div>
-            <p>AngularJS Application which uses OAuth Bearer Token for authentication and implements Refresh Tokens. The backend API is built using ASP.NET Web API 2, OWIN middleware, and ASP.NET Identity.</p>
-        </div>
-    </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> SERVICES<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="academic.html">Academic</a></li>
+                            <li><a href="business1.html">Business</a></li>
+                            <li><a href="authors.html">Authors</a></li>
+                            <li><a href="personal.html">Personal</a></li>
+                            <li><a href="online-content.html">Online Content</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/pricing">PRICING</a></li>
+                    <li><a href="samples.html">SAMPLES</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="reviews.html">REVIEWS</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
 
-    <div class="container">
-        <div data-ng-view="">
-        </div>
-    </div>
-
-    <hr />
-
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="text-muted">Created by Taiseer Joudeh. Twitter: <a target="_blank" href="http://twitter.com/tjoudeh">@tjoudeh</a></p>
-                </div>
-                <div class="col-md-6">
-                    <p class="text-muted">Taiseer Joudeh Blog: <a target="_blank" href="http://bitoftech.net">bitoftech.net</a></p>
-                </div>
+                    <li><a href="order.html"><button type="button" class="btn btn-success">ORDER NOW</button></a></li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <!--========================================================-->
+
+
+    <div data-ng-view="">
     </div>
+
+
+
+    <!--=========================================================================================-->
+    <!--===============================================================-->
+
+    <section class="why-choose-us">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                        <h2 class="heading-1">Why Choose Us</h2>
+                    </div>
+                    <!--end of col-md-nline
+                    </div><!--end of row-->
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="side-icon-box">
+                                <div class="side-icon"><img src="content/images/w-1.png" class="img-responsive"></div>
+                                <div class="side-icon-text">
+                                    <h4 class="heading-1">Unbeatable and Affordable Prices</h4>
+                                    <p>
+                                        We maintain a system of competitive pricing. We refine and polish your documents at unbelievably low prices without any compromise on quality. In the unlikely event that you are not entirely satisfied with our services, we will revise your document absolutely for free.
+                                    </p>
+                                </div><!--end of side-icon-text-->
+                            </div><!--end of side-icon-box-->
+                        </div><!--end of col-md-6-->
+
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="side-icon-box">
+                                <div class="side-icon"><img src="content/images/w-2.png" class="img-responsive"></div>
+                                <div class="side-icon-text">
+                                    <h4 class="heading-1">Prompt and Affordable Services Available 24/7</h4>
+                                    <p>We are available for you at all times and offer our proofreading and editing services to you round-the-clock. We understand the gravity of precise deadlines and thus have a large in-house editorial team to service your needs on weekends, or holidays or odd hours. Our sole aim is to deliver your error-free document to you absolutely on time. </p>
+                                </div><!--end of side-icon-text-->
+                            </div><!--end of side-icon-box-->
+                        </div><!--end of col-md-6-->
+                    </div><!--end of row-->
+                    <!--==============================================-->
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="side-icon-box">
+                                <div class="side-icon"><img src="content/images/w-3.png" class="img-responsive"></div>
+                                <div class="side-icon-text">
+                                    <h4 class="heading-1">100% Satisfaction Guaranteed</h4>
+                                    <p>We love nothing more than delivering your document with just the output you need and to ensure your 100 percent satisfaction. We improvise our service with your valuable feedback and suggestions and our expert editors make sure they understand and edit your content customised and tailored as per your requirements. </p>
+                                </div><!--end of side-icon-text-->
+                            </div><!--end of side-icon-box-->
+                        </div><!--end of col-md-6-->
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="side-icon-box">
+                                <div class="side-icon"><img src="content/images/w-4.png" class="img-responsive"></div>
+                                <div class="side-icon-text">
+                                    <h4 class="heading-1">Confidential and Secure Service</h4>
+                                    <p>Our service is absolutely safe and confidential. We use 256-bit SSL industry standard encryption technology to ensure the confidentiality and security of our service. Payments are taken through PayPal which is a globally accepted secure payment gateway that accepts all major debit/credit cards and does not require registration.</p>
+                                </div><!--end of side-icon-text-->
+                            </div><!--end of side-icon-box-->
+                        </div><!--end of col-md-6-->
+                    </div><!--end of row-->
+                </div><!--end of container-->
+            </div><!--end of container fluid-->
+    </section>
+
+
+    <!--===============================================================-->
+    <section class="count">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <ul class="count-list">
+                            <li><span>36343 +</span> customers</li>
+                            <li><span>98789+</span> documents</li>
+                            <li><span>853+</span> subjects</li>
+                            <li><span>154+</span> experts</li>
+                            <li><span>10+</span> years of experience</li>
+                        </ul>
+
+
+                    </div><!--end of col-md-12-->
+                </div><!--end of row-->
+            </div><!--end of container-->
+        </div><!--end of container fluid-->
+    </section>
+    <!--===============================================================-->
+
+
+    <section class="editing-services">
+        <div class="container-fluid editing-services-inside">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 ">
+                        <div class="editing-services-box">
+                            <h3 class="heading-1">What Our English Editing Service Will Do</h3>
+                            <ul class="editing-list">
+                                <li>Check for all grammatical, punctuation, spelling, typographical and English language errors.</li>
+                                <li>Enhance clarity, style, paragraph, syntax and sentence structure.</li>
+                                <li>Appropriate tone, layout, font, number style, eliminate redundancy and ambiguity.</li>
+                                <li>Documents assigned to editors from your field to comprehend the technicality of your document.</li>
+                                <li>Provide you with valuable feedback on your writing skills and give you tips about how you can improve your English language.</li>
+                                <li>Correct all formatting including references, in-text citations, footnotes in several style guides such as Harvard, APA, MLA, OSCOLA, Chicago, MHRA, etc.</li>
+                            </ul>
+
+                        </div><!--end of editing services box-->
+
+                    </div><!--end of col-md-6-->
+
+
+                </div><!--end of row-->
+            </div><!--end of container-->
+        </div><!--end of container fluid-->
+    </section>
+
+
+
+
+
+    <section class="testimonials">
+        <div class="container-fluid">
+            <div class="container">
+                <h2 class="heading-1 text-center">What Our Customers Are Saying</h2>
+                <br>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******* services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div><!--end of col-md-4-->
+
+
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******* services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div><!--end of col-md-4-->
+
+
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******** services to me. They have an amazing customer support team which clarifies all my doubts. </p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div> <!--end of col-md-4-->
+
+                        </div><!--end of item-->
+
+                        <div class="item">
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended *******services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div><!--end of col-md-4-->
+
+
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended *******services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div><!--end of col-md-4-->
+
+
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ****** services to me. They have an amazing customer support team which clarifies all my doubts. </p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div> <!--end of col-md-4-->
+
+                        </div><!--end of item-->
+
+                        <div class="item">
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended *******services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div><!--end of col-md-4-->
+
+
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended *******services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div><!--end of col-md-4-->
+
+
+                            <div class="col-md-4">
+                                <div class="testimony-box">
+                                    <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended *******services to me. They have an amazing customer support team which clarifies all my doubts. </p>
+                                    <span class="name"><h4>Sally Jones</h4>Manchester</span>
+                                </div><!--end of testimony box-->
+                            </div> <!--end of col-md-4-->
+                        </div><!--end of item-->
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>-->
+                </div>
+            </div>
+        </div><!--end of container fluid-->
+    </section>
+
+
+    <!--========================================================-->
+
+    <section class="footer">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <h4>ACADEMIC</h4>
+                        <ul class="footer-link">
+                            <li><a href="thesis.html">Thesis</a></li>
+                            <li><a href="dissertion.html">Dissertation</a></li>
+                            <li><a href="essay-proofreading.html">Essay</a></li>
+                            <li><a href="assignment-proofreading.html">Assignment</a></li>
+                            <li><a href="academic-article-proofreading.html">Article</a></li>
+                        </ul>
+                    </div><!--end of col-md-2-->
+
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <h4>BUSINESS</h4>
+                        <ul class="footer-link">
+                            <li><a href="business1.html">Brochure</a></li>
+                            <li><a href="business1.html">Report</a></li>
+                            <li><a href="business1.html">Manual</a></li>
+                            <li><a href="business1.html">Press Release</a></li>
+                            <li><a href="business1.html">PDF Document</a></li>
+                        </ul>
+                    </div><!--end of col-md-2-->
+
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <h4>AUTHORS</h4>
+                        <ul class="footer-link">
+                            <li><a href="authors.html">Manuscript</a></li>
+                            <li><a href="authors.html">Screenplay</a></li>
+                            <li><a href="authors.html">Novel</a></li>
+                            <li><a href="authors.html">Magazine</a></li>
+                            <li><a href="authors.html">Poem</a></li>
+                        </ul>
+                    </div><!--end of col-md-2-->
+
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <h4>PERSONAL</h4>
+                        <ul class="footer-link">
+                            <li><a href="personal.html">Resume</a></li>
+                            <li><a href="personal.html">Cover Letter</a></li>
+                            <li><a href="personal.html">CV</a></li>
+                            <li><a href="personal.html">College Application</a></li>
+                            <li><a href="personal.html">ESL Document</a></li>
+                        </ul>
+                    </div><!--end of col-md-2-->
+
+
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <h4>ONLINE CONTENT</h4>
+                        <ul class="footer-link">
+                            <li><a href="online-content.html">Website Content</a></li>
+                            <li><a href="online-content.html">Blog Post</a></li>
+                            <li><a href="online-content.html">News Letter</a></li>
+                            <li><a href="online-content.html">Social Media Content</a></li>
+                            <li><a href="online-content.html">LinkedIn Profile</a></li>
+                        </ul>
+                    </div><!--end of col-md-2-->
+
+
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <h4>EDITING SERVICES</h4>
+                        <ul class="footer-link">
+                            <li><a href="pricing1.html">Order Now</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="contact.html">Free Sample</a></li>
+                            <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                        <br>
+                        <ul class="social-link">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div><!--end of col-md-2-->
+
+                </div><!--end of row-->
+            </div><!--end of container-->
+        </div><!--end of container fluid-->
+    </section>
+
+
+    <section class="small-footer">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                        © 2018 EditCompany. All rights reserved.
+                    </div><!--end of col-md-4-->
+
+
+                </div><!--end of row-->
+            </div><!--end of container-->
+        </div><!--end of container fluid-->
+    </section>
+
+
+
+
 
     <!-- 3rd party libraries -->
 
@@ -70,15 +445,14 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
     <script src="scripts/angular-local-storage.min.js"></script>
     <script src="scripts/loading-bar.min.js"></script>
-
     <!-- Load app main script -->
     <script src="app/app.js?v=2"></script>
-
     <!-- Load services -->
     <script src="app/services/authInterceptorService.js?v=2"></script>
     <script src="app/services/authService.js?v=2"></script>
     <script src="app/services/ordersService.js?v=2"></script>
     <script src="app/services/tokensManagerService.js?v=2"></script>
+    <script src="app/services/pricingService.js?v=2"></script>
     <!-- Load controllers -->
     <script src="app/controllers/indexController.js?v=2"></script>
     <script src="app/controllers/homeController.js?v=2"></script>
@@ -88,8 +462,19 @@
     <script src="app/controllers/refreshController.js?v=2"></script>
     <script src="app/controllers/tokensManagerController.js?v=2"></script>
     <script src="app/controllers/associateController.js?v=2"></script>
+    <script src="app/controllers/pricingController.js"></script>
+    <script src="app/controllers/orderRequirementController.js"></script>
+    <script src="app/controllers/orderReviewController.js"></script>
     <!-- Load custom filters -->
     <!-- Load custom directives -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="content/js/bootstrap.min.js"></script>
+    <script src="content/js/custom.js"></script>
+
+    
+
 
 </body>
 </html>

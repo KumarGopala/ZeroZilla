@@ -8,10 +8,10 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/home.html"
     });
 
-    $routeProvider.when("/login", {
-        controller: "loginController",
-        templateUrl: "/app/views/login.html"
-    });
+    //$routeProvider.when("/login", {
+    //    controller: "loginController",
+    //    templateUrl: "/app/views/login.html"
+    //});
 
     $routeProvider.when("/signup", {
         controller: "signupController",
@@ -37,6 +37,37 @@ app.config(function ($routeProvider) {
         controller: "associateController",
         templateUrl: "/app/views/associate.html"
     });
+
+
+
+    $routeProvider.when("/pricing", {
+        controller: "pricingController",
+        templateUrl: "/app/views/pricing1.html"
+    });
+
+    $routeProvider.when("/login", {
+        controller: "loginController",
+        templateUrl: "/app/views/signin.html"
+    });
+
+    $routeProvider.when("/signin", {
+        controller: "loginController",
+        templateUrl: "/app/views/signin.html"
+    });
+
+    
+    $routeProvider.when("/orderRequirement", {
+        controller: "orderRequirementController",
+        templateUrl: "/app/views/orderRequirments.html"
+    });
+
+    
+    $routeProvider.when("/orderReview", {
+        controller: "orderReviewController",
+        templateUrl: "/app/views/orderReview.html"
+    });
+
+
 
     $routeProvider.otherwise({ redirectTo: "/home" });
 

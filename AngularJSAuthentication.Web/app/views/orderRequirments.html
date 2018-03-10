@@ -1,0 +1,78 @@
+﻿<div class="samplepage">
+    <div class="container">
+        <h2>
+            Enter Your Requirements
+        </h2>
+        <div class="clearfix"></div>
+        <div class="loginbox">
+            <div class="form-group">
+                <label for="">
+                    Document Type<span class="error_msg">*</span>
+                </label>
+                <select class="form-control" name="document_type" id="document_type" data-ng-model="DocType" >
+                    <option value="">Select Document Type</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Business">Business</option>
+                    <option value="Authors">Authors</option>
+                    <option value="Personal">Personal</option>
+                </select>
+                <div id="doc_type_error" class="error_msg"></div>
+            </div>
+            <div class="form-group">
+                <label for="">Subcategory<span class="error_msg">*</span></label>
+                <div id="shopDiv">
+                    <select class="form-control" name="subcategory_id" id="subcategory_id" data-ng-model="SubCatType">
+                        <option value="">Select Subcategory</option>
+                        <option value="Dissertation">Dissertation</option>
+                        <option value="Thesis">Thesis</option>
+                        <option value="Essay">Essay</option>
+                        <option value="Assignment">Assignment</option>
+                        <option value="Research Paper">Research Paper</option>
+                        <option value="Manuscript">Manuscript</option>
+                        <option value="Research Proposal">Research Proposal</option>
+                        <option value="Project Report">Project Report</option>
+                        <option value="Journal Article">Journal Article</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div id="subcategory_error" class="error_msg"></div>
+            </div>
+            <div class="form-group">
+                <label for="">
+                    English Style
+
+                </label>
+                <select class="form-control" name="english_style" id="english_style" data-ng-model="EngStyle">
+                    <option value="">(Optional)</option>
+                    <option value="US English">US English</option>
+                    <option value="UK English">UK English</option>
+                </select>
+            </div>
+            <div class="form-group" id="requirment_dive">
+                <label for="">Referencing</label>
+                <select class="form-control" name="referencing" id="referencing" data-ng-model="Reference">
+                    <option value="">(Optional)</option>
+                    <option value="APA">APA</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Harvard">Harvard</option>
+                    <option value="IEEE">IEEE</option>
+                    <option value="MHRA">MHRA</option>
+                    <option value="MLA">MLA</option>
+                    <option value="OSCOLA">OSCOLA</option>
+
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">
+                    Your Requirements
+                </label>
+                <textarea class="form-control" rows="3" name="your_requirment" id="your_requirment" placeholder="(Optional)" data-ng-model="YourRequirement"></textarea>
+            </div>
+
+
+            <div class="form-group">
+                <button type="button" class="btn btn-success" data-ng-click="OrderReview()">NEXT</button>
+
+            </div>
+        </div>

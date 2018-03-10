@@ -4,54 +4,65 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web.Http;
+using AngularJSAuthentication.API.Models;
+using AngularJSAuthentication.API.Repository;
 
 namespace AngularJSAuthentication.API.Controllers
 {
     [RoutePrefix("api/Orders")]
     public class OrdersController : ApiController
     {
-        [Authorize]
-        [Route("")]
-        public IHttpActionResult Get()
+        private OrderRepository _orderRepository;
+        public OrdersController()
         {
-            //ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
-
-            //var Name = ClaimsPrincipal.Current.Identity.Name;
-            //var Name1 = User.Identity.Name;
-
-            //var userName = principal.Claims.Where(c => c.Type == "sub").Single().Value;
-
-            return Ok(Order.CreateOrders());
+            _orderRepository = new OrderRepository();
         }
 
+        [Authorize]
+        [HttpPost]
+        [Route("")]
+        public async Task<IHttpActionResult> CreateOrder(Order order)
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            order.UserName = user;
+            var result=await _orderRepository.CreateOrder(order);
+            return Ok();
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [Route("/test")]
+        public async Task<IHttpActionResult> Test (object order)
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("")]
+        public async Task<IHttpActionResult> GetOrder()
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            List<Order> orders = new List<Order>();
+            orders.Add(new Order() { DocumentType = "Academic", OrderID = 1, SubCategory = "Essay", EnglishStyle = "US English", Referencing = "IEEE", Requirments = "My First Order", UserName = "kumar" });
+            orders.Add(new Order() { DocumentType = "Business", OrderID = 2, SubCategory = "Report", EnglishStyle = "UK English", Referencing = "", Requirments = "Business need", UserName = "kumar" });
+            //order.UserName = user;
+            //var result = await _orderRepository.CreateOrder(order);
+            return Ok(orders);
+        }
     }
 
 
     #region Helpers
 
-    public class Order
-    {
-        public int OrderID { get; set; }
-        public string CustomerName { get; set; }
-        public string ShipperCity { get; set; }
-        public Boolean IsShipped { get; set; }
-
-
-        public static List<Order> CreateOrders()
-        {
-            List<Order> OrderList = new List<Order> 
-            {
-                new Order {OrderID = 10248, CustomerName = "Taiseer Joudeh", ShipperCity = "Amman", IsShipped = true },
-                new Order {OrderID = 10249, CustomerName = "Ahmad Hasan", ShipperCity = "Dubai", IsShipped = false},
-                new Order {OrderID = 10250,CustomerName = "Tamer Yaser", ShipperCity = "Jeddah", IsShipped = false },
-                new Order {OrderID = 10251,CustomerName = "Lina Majed", ShipperCity = "Abu Dhabi", IsShipped = false},
-                new Order {OrderID = 10252,CustomerName = "Yasmeen Rami", ShipperCity = "Kuwait", IsShipped = true}
-            };
-
-            return OrderList;
-        }
-    }
+   
 
     #endregion
 }
