@@ -75,6 +75,7 @@
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\pricingService.js" />
+    <Content Include="app\services\sharedPropertiesService.js" />
     <Content Include="app\services\utility.js" />
     <Content Include="app\services\ordersService.js" />
     <Content Include="app\services\tokensManagerService.js" />
