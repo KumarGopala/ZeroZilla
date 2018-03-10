@@ -28,20 +28,12 @@ namespace AngularJSAuthentication.API.Controllers
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
             var user = ClaimsPrincipal.Current.Identity.Name;
             order.UserName = user;
-            var result=await _orderRepository.CreateOrder(order);
+            var result = await _orderRepository.CreateOrder(order);
             return Ok();
         }
 
 
-        [Authorize]
-        [HttpPost]
-        [Route("/test")]
-        public async Task<IHttpActionResult> Test (object order)
-        {
-            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
-            var user = ClaimsPrincipal.Current.Identity.Name;
-            return Ok();
-        }
+
 
         [Authorize]
         [HttpGet]
@@ -62,7 +54,7 @@ namespace AngularJSAuthentication.API.Controllers
 
     #region Helpers
 
-   
+
 
     #endregion
 }

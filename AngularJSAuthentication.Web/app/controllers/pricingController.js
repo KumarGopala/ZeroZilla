@@ -33,6 +33,7 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
         $scope.pricing = [];
         $scope.pricing.wordCount = $scope.wordCount;
         $scope.pricing.deliveryType = $scope.deliveryType;
+        $scope.pricing.PriceQuote = $scope.PriceQuote;
 
         $rootScope.pricing = $scope.pricing;
 
