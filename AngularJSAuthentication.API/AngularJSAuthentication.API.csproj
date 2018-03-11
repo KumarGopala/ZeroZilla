@@ -147,6 +147,7 @@
       <DependentUpon>201407121205456_AddClientsAndRefreshTokenTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\LogWriter.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\ExternalLoginModels.cs" />
     <Compile Include="Models\Order.cs" />
@@ -174,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="LogPath\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407121205456_AddClientsAndRefreshTokenTables.resx">
