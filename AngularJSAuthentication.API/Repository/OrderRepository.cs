@@ -15,20 +15,15 @@ namespace ZeroZilla.API.Repository
 
         public async Task<int> CreateOrder(Order order)
         {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["AuthContext"].ToString()))
-            {
-                SqlCommand cmd = new SqlCommand("[dbo].[InsertOrder]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@UserName", order.UserName));
-                cmd.Parameters.Add(new SqlParameter("@DocumentType", order.DocumentType));
-                cmd.Parameters.Add(new SqlParameter("@SubCategory", order.SubCategory));
-                cmd.Parameters.Add(new SqlParameter("@EnglishStyle", order.EnglishStyle));
-                cmd.Parameters.Add(new SqlParameter("@Referencing", order.Referencing));
-                cmd.Parameters.Add(new SqlParameter("@Requirments", order.Requirments));
-                con.Open();
-                var result = await cmd.ExecuteNonQueryAsync();
-                return result;
-            }
+            var param = new object[6];
+            param[0] = order.UserName;
+            param[1] = order.DocumentType;
+            param[2] = order.SubCategory;
+            param[3] = order.EnglishStyle;
+            param[4] = order.Referencing;
+            param[5] = order.Requirments;
+            return SqlHelper.ExecuteNonQuery(ConnectionString, "[dbo].[InsertOrder]", param);
+           
         }
         
     }
