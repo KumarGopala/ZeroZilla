@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Dapper;
 
-namespace AngularJSAuthentication.API.Repository
+namespace ZeroZilla.API.Repository
 {
     public class PriceQuoteRepository
     {

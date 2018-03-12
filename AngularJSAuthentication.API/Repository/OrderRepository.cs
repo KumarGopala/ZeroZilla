@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using AngularJSAuthentication.API.Models;
+using ZeroZilla.API.Models;
 
-namespace AngularJSAuthentication.API.Repository
+namespace ZeroZilla.API.Repository
 {
     public class OrderRepository
     {

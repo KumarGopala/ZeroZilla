@@ -6,10 +6,10 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
-using AngularJSAuthentication.API.Models;
-using AngularJSAuthentication.API.Repository;
+using ZeroZilla.API.Models;
+using ZeroZilla.API.Repository;
 
-namespace AngularJSAuthentication.API.Controllers
+namespace ZeroZilla.API.Controllers
 {
     [RoutePrefix("api/Orders")]
     public class OrdersController : ApiController

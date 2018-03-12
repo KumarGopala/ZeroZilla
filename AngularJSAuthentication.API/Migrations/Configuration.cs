@@ -1,20 +1,20 @@
-namespace AngularJSAuthentication.API.Migrations
+namespace ZeroZilla.API.Migrations
 {
-    using AngularJSAuthentication.API.Entities;
+    using ZeroZilla.API.Entities;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AngularJSAuthentication.API.AuthContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ZeroZilla.API.AuthContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(AngularJSAuthentication.API.AuthContext context)
+        protected override void Seed(ZeroZilla.API.AuthContext context)
         {
             if (context.Clients.Count() > 0)
             {

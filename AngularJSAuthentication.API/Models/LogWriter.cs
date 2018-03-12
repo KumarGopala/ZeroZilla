@@ -5,7 +5,7 @@ using System.Web;
 using System.IO;
 using System.Reflection;
 
-namespace AngularJSAuthentication.API.Models
+namespace ZeroZilla.API.Models
 {
 
     public class LogWriter

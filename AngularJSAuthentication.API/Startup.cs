@@ -1,5 +1,5 @@
-﻿using AngularJSAuthentication.API.Models;
-using AngularJSAuthentication.API.Providers;
+﻿using ZeroZilla.API.Models;
+using ZeroZilla.API.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
@@ -12,9 +12,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 
-[assembly: OwinStartup(typeof(AngularJSAuthentication.API.Startup))]
+[assembly: OwinStartup(typeof(ZeroZilla.API.Startup))]
 
-namespace AngularJSAuthentication.API
+namespace ZeroZilla.API
 {
     public class Startup
     {
@@ -35,7 +35,7 @@ namespace AngularJSAuthentication.API
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, AngularJSAuthentication.API.Migrations.Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, ZeroZilla.API.Migrations.Configuration>());
 
         }
 

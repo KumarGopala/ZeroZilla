@@ -1,5 +1,5 @@
-﻿using AngularJSAuthentication.API.Entities;
-using AngularJSAuthentication.API.Models;
+﻿using ZeroZilla.API.Entities;
+using ZeroZilla.API.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace AngularJSAuthentication.API
+namespace ZeroZilla.API
 {
 
     public class AuthRepository : IDisposable

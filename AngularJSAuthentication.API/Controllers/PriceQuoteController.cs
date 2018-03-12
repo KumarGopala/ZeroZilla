@@ -5,9 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using AngularJSAuthentication.API.Repository;
+using ZeroZilla.API.Repository;
 
-namespace AngularJSAuthentication.API.Controllers
+namespace ZeroZilla.API.Controllers
 {
     [RoutePrefix("api/PriceQuote")]
     public class PriceQuoteController : ApiController

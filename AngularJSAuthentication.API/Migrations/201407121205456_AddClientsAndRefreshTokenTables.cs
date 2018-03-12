@@ -1,4 +1,4 @@
-namespace AngularJSAuthentication.API.Migrations
+namespace ZeroZilla.API.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

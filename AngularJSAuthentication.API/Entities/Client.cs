@@ -1,11 +1,11 @@
-﻿using AngularJSAuthentication.API.Models;
+﻿using ZeroZilla.API.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AngularJSAuthentication.API.Entities
+namespace ZeroZilla.API.Entities
 {
     public class Client
     {

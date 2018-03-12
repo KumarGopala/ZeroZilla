@@ -10,7 +10,7 @@ using Owin;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
-namespace AngularJSAuthentication.API.Providers
+namespace ZeroZilla.API.Providers
 {
     public class GoogleAuthProvider : IGoogleOAuth2AuthenticationProvider
     {
