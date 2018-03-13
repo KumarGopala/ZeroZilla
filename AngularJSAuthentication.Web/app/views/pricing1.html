@@ -1,4 +1,18 @@
 ﻿
+<style>
+
+    /*input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }*/
+</style>
+
 <section class="steps">
     <div class="container-fluid">
         <div class="container">
@@ -33,10 +47,20 @@
 
                             <div class="form-group text-center">
                                 <h3>OR</h3>
-                                <input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true">
+                                
                                 <span id="fileselector">
-                                    <label class="btn btn-default btn-danger" for="upload-file-selector">
-                                        <input class="btn btn-primary" type="button" ng-click="uploadFiles(files)" value="upload">
+
+                                    <!--<label class="custom-file-upload btn-danger" ng-click="uploadFiles(files)">
+                                        <input type="file" id="newDoc" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true">
+                                        <i class="fa fa-cloud-upload"></i> Custom Upload
+                                    </label>-->
+
+
+                                    <div>
+                                        <input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true">
+                                    </div>
+                                    <label class="btn btn-default btn-danger" for="upload-file-selector" ng-click="uploadFiles(files)">
+                                        <!--<input type="button"value="upload">-->
                                         <!--<input id="upload-file-selector" type="file">-->
                                         <!--<input name="upload-file-selector" style="position: absolute; right: 0px; margin: 0px; padding: 0px; font-size: 480px; font-family: sans-serif; cursor: pointer; height: 100%;" type="file">-->
                                         <i class="fa_icon icon-upload-alt margin-correction"></i>Upload file
