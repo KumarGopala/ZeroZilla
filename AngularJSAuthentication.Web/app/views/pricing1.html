@@ -47,7 +47,7 @@
 
                             <div class="form-group text-center">
                                 <h3>OR</h3>
-                                
+
                                 <span id="fileselector">
 
                                     <!--<label class="custom-file-upload btn-danger" ng-click="uploadFiles(files)">
@@ -57,12 +57,15 @@
 
 
                                     <div>
-                                        <input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true">
+                                        {{filename}}
+                                        <!--<input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true">-->
                                     </div>
-                                    <label class="btn btn-default btn-danger" for="upload-file-selector" ng-click="uploadFiles(files)">
-                                        <!--<input type="button"value="upload">-->
-                                        <!--<input id="upload-file-selector" type="file">-->
-                                        <!--<input name="upload-file-selector" style="position: absolute; right: 0px; margin: 0px; padding: 0px; font-size: 480px; font-family: sans-serif; cursor: pointer; height: 100%;" type="file">-->
+                                    <label class="btn btn-default btn-danger" for="upload-file-selector">
+                                        <!--<input type="button"value="upload">
+                                        <input id="upload-file-selector" type="file">-->
+                                        <input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true"
+                                               style="position: absolute; right: 0px; margin: 0px; padding: 0px; font-size: 480px; font-family: sans-serif; cursor: pointer; height: 100%;">
+                                        <!--<input name="upload-file-selector" type="file">-->
                                         <i class="fa_icon icon-upload-alt margin-correction"></i>Upload file
                                     </label>
                                 </span><br>

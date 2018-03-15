@@ -5,6 +5,7 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
         var cnt = $scope.wordCount;
         $scope.pricing = [];
+        $scope.files = [];
 
         var serviceBase = ngAuthSettings.apiServiceBaseUri;
         $scope.GetPrice = function (wordCount, deliveryType) {
@@ -13,14 +14,35 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
             //    debugger;
             //    return results.data;
             //}, function (error) {
+            var files = $scope.files;
+            if (deliveryType == undefined) {
+                alert("Please select Delivery Type");
+                return;
+            }
 
+            if (files[0]==undefined) {
+                if (wordCount == undefined) {
+                    alert("Please upload files or Enter word count");
+                    return;
+                }
+            }
+            else {
+                $scope.uploadFiles();
+            }
+
+            //if (wordCount == undefined) {
             //    debugger;
+
+            //    var files = $scope.files;
+            //    alert("");
+            //    return;
+            //}
             //    });
             $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType).then(function (results) {
                 debugger;
                 $scope.PriceQuote = results.data;
             }, function (error) {
-
+                $scope.PriceQuote = 0;
                 debugger;
             });
 
@@ -71,14 +93,17 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
 
 
-        $scope.uploadFiles =   function(files) {
+        $scope.uploadFiles =   function() {
             debugger;
+            var files = $scope.files;
             //vm.spinner.active = true;
             Upload.upload({
                 url: serviceBase +"api/PriceQuote/files",
                 data: { file: files }
             })
                 .then(function (response) {
+                    debugger;
+                    $scope.filename = "Uploaded files : "+files[0].name;
                     //activate();
                     //setPreviewPhoto();
                     //vm.spinner.active = false;

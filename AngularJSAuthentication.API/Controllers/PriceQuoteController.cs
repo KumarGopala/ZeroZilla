@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spire.Doc;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,8 +31,8 @@ namespace ZeroZilla.API.Controllers
             if (wordCount < 0 || string.IsNullOrWhiteSpace(deliveryType))
             {
                 return BadRequest("Invalid Word Count or Delivery Type");
-            }           
-           var response= await _repo.GetPriceQuote(wordCount, deliveryType);
+            }
+            var response = await _repo.GetPriceQuote(wordCount, deliveryType);
             return Ok(response);
         }
 
@@ -109,7 +110,7 @@ namespace ZeroZilla.API.Controllers
             }
         }
 
-        
+
         [Route("files")]
         public async Task<IHttpActionResult> Add()
         {
@@ -125,7 +126,7 @@ namespace ZeroZilla.API.Controllers
                 await Task.Run(async () => await Request.Content.ReadAsMultipartAsync(provider));
 
                 var docs = new List<DocViewModel>();
-
+                int count = 0;
                 foreach (var file in provider.FileData)
                 {
                     var fileInfo = new FileInfo(file.LocalFileName);
@@ -137,8 +138,18 @@ namespace ZeroZilla.API.Controllers
                         Modified = fileInfo.LastWriteTime,
                         Size = fileInfo.Length / 1024
                     });
+
+
+                    Document doc = new Document();
+                    doc.LoadFromFile(file.LocalFileName, FileFormat.Docx2010);
+                    count = doc.BuiltinDocumentProperties.WordCount;
+
                 }
-                return Ok(new { Message = "Doc uploaded ok", docs = docs });
+
+
+                return Ok(count);
+
+                //return Ok(new { Message = "Doc uploaded ok", docs = docs });
             }
             catch (Exception ex)
             {
