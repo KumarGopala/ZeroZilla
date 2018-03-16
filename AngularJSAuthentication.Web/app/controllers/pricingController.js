@@ -76,17 +76,7 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
         }
 
-
-        $scope.Get2 = pricingService.getPrice(1, 1).then(function (results) {
-            debugger;
-            alert(10);
-            $scope.Amount = results.data;
-
-        }, function (error) {
-            //alert(error.data.message);
-        });
-
-
+ 
 
         $scope.uploadFiles =   function() {
             debugger;
