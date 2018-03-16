@@ -147,9 +147,9 @@ namespace ZeroZilla.API.Controllers
                 }
 
 
-                return Ok(count);
+                //return Ok(count);
 
-                //return Ok(new { Message = "Doc uploaded ok", docs = docs });
+                return Ok(new { Message = "Doc uploaded ok", docs = docs, counts = count });
             }
             catch (Exception ex)
             {

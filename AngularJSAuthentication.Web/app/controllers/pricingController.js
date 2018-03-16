@@ -10,10 +10,6 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
         var serviceBase = ngAuthSettings.apiServiceBaseUri;
         $scope.GetPrice = function (wordCount, deliveryType) {
 
-            //$http.get(serviceBase + '/api/PriceQuote/price/' + wordCount + '/' + deliveryType).then(function (results) {
-            //    debugger;
-            //    return results.data;
-            //}, function (error) {
             var files = $scope.files;
             if (deliveryType == undefined) {
                 alert("Please select Delivery Type");
@@ -25,26 +21,28 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                     alert("Please upload files or Enter word count");
                     return;
                 }
+
+                $scope.getPriceQuote(wordCount, deliveryType);
             }
             else {
                 $scope.uploadFiles();
+                $scope.getPriceQuote(wordCount, deliveryType);
             }
 
-            //if (wordCount == undefined) {
-            //    debugger;
+          
 
-            //    var files = $scope.files;
-            //    alert("");
-            //    return;
-            //}
-            //    });
+        }
+
+
+        $scope.getPriceQuote = function (wordCount, deliveryType) {
+
             $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType).then(function (results) {
                 debugger;
                 $scope.PriceQuote = results.data;
             }, function (error) {
                 $scope.PriceQuote = 0;
                 debugger;
-            });
+                });
 
         }
 
@@ -57,9 +55,6 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                 $scope.files.push(args.file);
             });
         });
-
-        //https://shazwazza.com/post/uploading-files-and-json-data-in-the-same-request-with-angular-js/
-        //https://stackoverflow.com/questions/31987723/unable-to-upload-doc-or-docx-file
 
 
         $scope.PlaceOrder = function () {
@@ -103,13 +98,11 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
             })
                 .then(function (response) {
                     debugger;
-                    $scope.filename = "Uploaded files : "+files[0].name;
-                    //activate();
-                    //setPreviewPhoto();
-                    //vm.spinner.active = false;
+                    $scope.filename = "Uploaded files : " + files[0].name;
+                    $scope.wordCount =  response.data.counts;
+                  
                 }, function (err) {
                     console.log("Error status: " + err.status);
-                    //vm.spinner.active = false;
                 });
 
 
