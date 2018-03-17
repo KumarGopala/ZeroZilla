@@ -32,7 +32,7 @@
                         <tr ng-repeat="o in orders ">
                             <td align="center">{{o.orderDate}}</td>
                             <td align="center">{{o.orderDetailID}}</td>
-                            <td align="left"><a target='_blank' href='https://trueeditors.com/stuff/document_uploaded/testDoc.doc'>{{o.displayFileName}}</a></td>
+                            <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFileName}}'>{{o.displayFileName}}</a></td>
                             <td align="center">{{o.priceQuote}}</td>
                             <td align="center">{{o.paymentStatus}}</td>
                             <td align="center">{{o.jobStatus}}</td>
