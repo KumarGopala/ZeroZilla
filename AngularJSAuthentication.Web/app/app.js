@@ -122,7 +122,52 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/reviews.html"
     });
 
-    
+
+    // For UI
+    $routeProvider.when("/academic-article-proofreading", {
+        templateUrl: "/app/views/UI/academic/academic-article-proofreading.html"
+    });
+    $routeProvider.when("/assignment-proofreading", {
+        templateUrl: "/app/views/UI/academic/assignment-proofreading.html"
+    });
+    $routeProvider.when("/dissertion", {
+        templateUrl: "/app/views/UI/academic/dissertion.html"
+    });
+
+    $routeProvider.when("/essay-proofreading", {
+        templateUrl: "/app/views/UI/academic/essay-proofreading.html"
+    });
+    $routeProvider.when("/thesis", {
+        templateUrl: "/app/views/UI/academic/thesis.html"
+    });
+
+
+    $routeProvider.when("/authors", {
+        templateUrl: "/app/views/UI/authors/authors.html"
+    });
+
+    $routeProvider.when("/business1", {
+        templateUrl: "/app/views/UI/business/business1.html"
+    });
+
+    $routeProvider.when("/privacy-policy", {
+        templateUrl: "/app/views/UI/editing/privacy-policy.html"
+    });
+
+    $routeProvider.when("/terms-condition", {
+        templateUrl: "/app/views/UI/editing/terms-condition.html"
+    });
+
+
+    $routeProvider.when("/online-content", {
+        templateUrl: "/app/views/UI/editing/online-content.html"
+    });
+
+    $routeProvider.when("/personal", {
+        templateUrl: "/app/views/UI/editing/personal.html"
+    });
+
+    //End of UI
 
     $routeProvider.otherwise({ redirectTo: "/home" });
 
