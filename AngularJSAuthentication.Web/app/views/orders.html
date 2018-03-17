@@ -23,41 +23,40 @@
                             <td width="60" align="center"><strong>Order Date</strong></td>
                             <td width="47" align="center"><strong>Job ID</strong></td>
                             <td width="85" align="left"><strong>File Name</strong></td>
-                            <!-- <td width="65" align="center"><strong>Due Date</strong></td> -->
                             <td width="50" align="center"><strong>Quote</strong></td>
                             <td width="70" align="center"><strong>Payment Status</strong></td>
                             <td width="95" align="center"><strong>Job Status</strong></td>
-                            <td width="59" align="center"><strong>File Details</strong></td>
-                            <td width="61" align="center"><strong>Action</strong></td>
+                            <!--<td width="59" align="center"><strong>File Details</strong></td>-->
+                            <!--<td width="61" align="center"><strong>Action</strong></td>-->
                         </tr>
-                        <tr>
+                        <tr ng-repeat="o in orders ">
+                            <td align="center">{{o.orderDate}}</td>
+                            <td align="center">{{o.orderDetailID}}</td>
+                            <td align="left"><a target='_blank' href='https://trueeditors.com/stuff/document_uploaded/testDoc.doc'>{{o.displayFileName}}</a></td>
+                            <td align="center">{{o.priceQuote}}</td>
+                            <td align="center">{{o.paymentStatus}}</td>
+                            <td align="center">{{o.jobStatus}}</td>
+
+                        </tr>
+                       
+                        <!--<tr>
                             <td align="center">10:20 PM, 15 Mar 2018</td>
                             <td align="center">5056</td>
                             <td align="left"><a target='_blank' href='https://trueeditors.com/stuff/document_uploaded/testDoc.doc'>testDoc.doc</a></td>
-                            <!-- <td align="center">05:00 PM, 16 Mar 2018</td> -->
                             <td align="center">INR144</td>
                             <td align="center">Pending</td>
                             <td align="center">In Process</td>
-                            <td align="center">NA								</td>
-                            <td align="center">
-                                <a href='https://trueeditors.com/homes/pay_invoice/5056'>Pay Now</a><br /><br /><a href="/orders/orders/delete_order/5056" onclick="if (confirm(&quot;Are you sure you want to remove this order?&quot;)) { return true; } return false;">Delete Job</a>
-
-                            </td>
-                        </tr>
-                        <tr>
+                            
+                        </tr>-->
+                        <!--<tr>
                             <td align="center">08:35 PM, 9 Mar 2018</td>
                             <td align="center">4984</td>
                             <td align="left"><a target='_blank' href='https://trueeditors.com/stuff/document_uploaded/sample.docx'>sample.docx</a></td>
-                            <!-- <td align="center">05:00 PM, 10 Mar 2018</td> -->
                             <td align="center">INR3</td>
                             <td align="center">Pending</td>
                             <td align="center">In Process</td>
-                            <td align="center">NA								</td>
-                            <td align="center">
-                                <a href='https://trueeditors.com/homes/pay_invoice/4984'>Pay Now</a><br /><br /><a href="/orders/orders/delete_order/4984" onclick="if (confirm(&quot;Are you sure you want to remove this order?&quot;)) { return true; } return false;">Delete Job</a>
-
-                            </td>
-                        </tr>
+                            
+                        </tr>-->
 
                     </table>
 

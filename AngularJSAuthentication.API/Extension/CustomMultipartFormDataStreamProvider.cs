@@ -23,7 +23,9 @@ namespace ZeroZilla.API.Extension
             var name = !string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName)
               ? headers.ContentDisposition.FileName
               : "NoName";
-            return name.Trim('"').Replace("&", "and");
+            string filename = (name.Split('.')[0] + "-" + DateTime.Now.ToString("yyyyMMddHHmmss") +"." + name.Split('.')[1]).Trim('"').Replace("&", "and");
+            return filename;
+            //return name.Trim('"').Replace("&", "and");
         }
     }
 }

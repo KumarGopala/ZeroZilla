@@ -114,7 +114,16 @@ app.config(function ($routeProvider) {
     $routeProvider.when("/personal", {
         templateUrl: "/app/views/personal.html"
     });
-     
+
+    $routeProvider.when("/samples", {
+        templateUrl: "/app/views/samples.html"
+    });
+    $routeProvider.when("/reviews", {
+        templateUrl: "/app/views/reviews.html"
+    });
+
+    
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });

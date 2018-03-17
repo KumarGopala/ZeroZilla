@@ -16,4 +16,18 @@ namespace ZeroZilla.API.Models
         public string Requirments { get; set; }
 
     }
+
+
+    public class OrderDetail
+    {
+        public int OrderDetailID { get; set; }
+        public string OrderDate { get; set; }
+        public string DisplayFileName { get; set; }
+        public string StoredFileName { get; set; }
+        public string PriceQuote { get; set; }
+        public string PaymentStatus{ get; set; }
+        public string JobStatus{ get; set; }
+        public string Action { get; set; }
+
+    }
 }

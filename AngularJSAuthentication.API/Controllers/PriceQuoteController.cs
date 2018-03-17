@@ -143,9 +143,13 @@ namespace ZeroZilla.API.Controllers
                     Document doc = new Document();
                     doc.LoadFromFile(file.LocalFileName, FileFormat.Docx2010);
                     count = doc.BuiltinDocumentProperties.WordCount;
+                    string displayFileName = file.Headers.ContentDisposition.FileName.ToString().Replace("\"", "");
 
+
+                    // post displayfilename and filename to db
                 }
 
+                
 
                 //return Ok(count);
 

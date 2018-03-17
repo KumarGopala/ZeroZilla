@@ -37,11 +37,9 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
         $scope.getPriceQuote = function (wordCount, deliveryType) {
 
             $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType).then(function (results) {
-                debugger;
                 $scope.PriceQuote = results.data;
             }, function (error) {
                 $scope.PriceQuote = 0;
-                debugger;
                 });
 
         }
@@ -66,7 +64,6 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
             $rootScope.pricing = $scope.pricing;
 
-            debugger;
             if (!authService.authentication.isAuth) {
                 $location.path('/signin');
             }
@@ -79,7 +76,7 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
  
 
         $scope.uploadFiles =   function() {
-            debugger;
+            
             var files = $scope.files;
             //vm.spinner.active = true;
             Upload.upload({
@@ -87,7 +84,6 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                 data: { file: files }
             })
                 .then(function (response) {
-                    debugger;
                     $scope.filename = "Uploaded files : " + files[0].name;
                     $scope.wordCount =  response.data.counts;
                   
