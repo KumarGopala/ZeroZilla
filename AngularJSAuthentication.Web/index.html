@@ -32,10 +32,9 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <ul class="top-list">
                             <li><h4><span class="icon"><i class="fa fa-phone"></i></span> +1 650 488 4532</h4></li>
-                            <div data-ng-hide="authentication.isAuth">    <a href="#/signin"><li><button type="button" class="btn btn-success">SIGN IN</button></li></a></div>
-                            <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
-                            <div data-ng-hide="!authentication.isAuth">    <a href="" data-ng-click="logOut()"><li><button type="button" class="btn btn-success">SIGN OUT</button></li></a></div>
-
+                            <li data-ng-hide="authentication.isAuth"><h4>    <a href="#/signin"><button type="button" class="btn btn-success">SIGN IN</button></a></></h4></li>
+                            <li data-ng-hide="!authentication.isAuth"><h4><a href="#/orders">Welcome {{authentication.userName}}</a></h4></li>
+                            <li data-ng-hide="!authentication.isAuth"><h4><a href="" data-ng-click="logOut()">                            <button type="button" class="btn btn-success">SIGN OUT</button></a></h4></li>
                         </ul><!--end of top list-->
                     </div><!--end of col-md-12-->
                 </div><!--end of row-->
@@ -88,9 +87,9 @@
                         </ul>
                     </li>
                     <li><a href="#/pricing">PRICING</a></li>
-                    <li><a href="samples.html">SAMPLES</a></li>
+                    <li><a href="#/samples">SAMPLES</a></li>
                     <li><a href="#/faq">FAQ</a></li>
-                    <li><a href="reviews.html">REVIEWS</a></li>
+                    <!--<li><a href="reviews.html">REVIEWS</a></li>-->
                     <li><a href="#/blog">BLOG</a></li>
                     <li><a href="#/contact">CONTACT US</a></li>
 
@@ -343,44 +342,44 @@
                     <div class="col-md-2 col-sm-2 col-xs-12">
                         <h4>ACADEMIC</h4>
                         <ul class="footer-link">
-                            <li><a href="thesis.html">Thesis</a></li>
-                            <li><a href="dissertion.html">Dissertation</a></li>
-                            <li><a href="essay-proofreading.html">Essay</a></li>
-                            <li><a href="assignment-proofreading.html">Assignment</a></li>
-                            <li><a href="academic-article-proofreading.html">Article</a></li>
+                            <li><a href="#/thesis">Thesis</a></li>
+                            <li><a href="#/dissertion">Dissertation</a></li>
+                            <li><a href="#/essay-proofreading">Essay</a></li>
+                            <li><a href="#/assignment-proofreading">Assignment</a></li>
+                            <li><a href="#/academic-article-proofreading">Article</a></li>
                         </ul>
                     </div><!--end of col-md-2-->
 
                     <div class="col-md-2 col-sm-2 col-xs-12">
                         <h4>BUSINESS</h4>
                         <ul class="footer-link">
-                            <li><a href="business1.html">Brochure</a></li>
-                            <li><a href="business1.html">Report</a></li>
-                            <li><a href="business1.html">Manual</a></li>
-                            <li><a href="business1.html">Press Release</a></li>
-                            <li><a href="business1.html">PDF Document</a></li>
+                            <li><a href="#/business1">Brochure</a></li>
+                            <li><a href="#/business1">Report</a></li>
+                            <li><a href="#/business1">Manual</a></li>
+                            <li><a href="#/business1">Press Release</a></li>
+                            <li><a href="#/business1">PDF Document</a></li>
                         </ul>
                     </div><!--end of col-md-2-->
 
                     <div class="col-md-2 col-sm-2 col-xs-12">
                         <h4>AUTHORS</h4>
                         <ul class="footer-link">
-                            <li><a href="authors.html">Manuscript</a></li>
-                            <li><a href="authors.html">Screenplay</a></li>
-                            <li><a href="authors.html">Novel</a></li>
-                            <li><a href="authors.html">Magazine</a></li>
-                            <li><a href="authors.html">Poem</a></li>
+                            <li><a href="#/authors">Manuscript</a></li>
+                            <li><a href="#/authors">Screenplay</a></li>
+                            <li><a href="#/authors">Novel</a></li>
+                            <li><a href="#/authors">Magazine</a></li>
+                            <li><a href="#/authors">Poem</a></li>
                         </ul>
                     </div><!--end of col-md-2-->
 
                     <div class="col-md-2 col-sm-2 col-xs-12">
                         <h4>PERSONAL</h4>
                         <ul class="footer-link">
-                            <li><a href="personal.html">Resume</a></li>
-                            <li><a href="personal.html">Cover Letter</a></li>
-                            <li><a href="personal.html">CV</a></li>
-                            <li><a href="personal.html">College Application</a></li>
-                            <li><a href="personal.html">ESL Document</a></li>
+                            <li><a href="#/personal">Resume</a></li>
+                            <li><a href="#/personal">Cover Letter</a></li>
+                            <li><a href="#/personal">CV</a></li>
+                            <li><a href="#/personal">College Application</a></li>
+                            <li><a href="#/personal">ESL Document</a></li>
                         </ul>
                     </div><!--end of col-md-2-->
 
@@ -388,11 +387,11 @@
                     <div class="col-md-2 col-sm-2 col-xs-12">
                         <h4>ONLINE CONTENT</h4>
                         <ul class="footer-link">
-                            <li><a href="online-content.html">Website Content</a></li>
-                            <li><a href="online-content.html">Blog Post</a></li>
-                            <li><a href="online-content.html">News Letter</a></li>
-                            <li><a href="online-content.html">Social Media Content</a></li>
-                            <li><a href="online-content.html">LinkedIn Profile</a></li>
+                            <li><a href="#/online-content">Website Content</a></li>
+                            <li><a href="#/online-content">Blog Post</a></li>
+                            <li><a href="#/online-content">News Letter</a></li>
+                            <li><a href="#/online-content">Social Media Content</a></li>
+                            <li><a href="#/online-content">LinkedIn Profile</a></li>
                         </ul>
                     </div><!--end of col-md-2-->
 
@@ -400,11 +399,11 @@
                     <div class="col-md-2 col-sm-2 col-xs-12">
                         <h4>EDITING SERVICES</h4>
                         <ul class="footer-link">
-                            <li><a href="pricing1.html">Order Now</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="contact.html">Free Sample</a></li>
-                            <li><a href="terms-condition.html">Terms & Conditions</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="#/pricing">Order Now</a></li>
+                            <li><a href="#/contact">Contact Us</a></li>
+                            <li><a href="#/contact">Free Sample</a></li>
+                            <li><a href="#/terms-condition">Terms & Conditions</a></li>
+                            <li><a href="#/privacy-policy">Privacy Policy</a></li>
                         </ul>
                         <br>
                         <ul class="social-link">
@@ -446,6 +445,8 @@
     <script src="scripts/angular-local-storage.min.js"></script>
     <script src="scripts/loading-bar.min.js"></script>
     <script src="scripts/angular-stripe-checkout.js"></script>
+    <script src="scripts/ng-file-upload-shim.js"></script>
+    <script src="scripts/ng-file-upload.js"></script>
     <!-- Load app main script -->
     <script src="app/app.js?v=2"></script>
     <!-- Load services -->
@@ -470,7 +471,7 @@
     <script src="app/controllers/SimpleExampleController.js"></script>
     <!--<script src="app/controllers/fileUpload.js"></script>-->
     <script src="app/controllers/blogController.js"></script>
-    
+
     <!-- Load custom filters -->
     <!-- Load custom directives -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

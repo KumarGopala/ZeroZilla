@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>pricing</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+       <link rel="stylesheet" type="text/css" href="css/media.css">
+       
+       <!--fonts-->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  
+<section class="top-header">
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<ul class="top-list">
+<li><h4><span class="icon"><i class="fa fa-phone"></i></span> +1 650 488 4532</h4></li>
+<a href="signin.html"><li><button type="button" class="btn btn-success">SIGN IN</button></li></a>
+<a href="my-profile.html"><li><button type="button" class="btn btn-success">My Account</button></li></a>
+</ul><!--end of top list-->
+</div><!--end of col-md-12-->
+</div><!--end of row-->
+</div><!--end of container-->
+</div><!--end of container fluid-->
+</section>
+ 
+ <!--==========================================================--> 
+  
+  <nav class="navbar navbar-default navbar-top-fixed navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-responsive" width="180"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="index.html"> SERVICES<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="academic.html">Academic</a></li>
+            <li><a href="business1.html">Business</a></li>
+            <li><a href="authors.html">Authors</a></li>
+            <li><a href="personal.html">Personal</a></li>
+            <li><a href="online-content.html">Online Content</a></li>
+          </ul>
+        </li>
+        <li><a href="pricing1.html">PRICING</a></li>
+        <li><a href="samples.html">SAMPLES</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="reviews.html">REVIEWS</a></li>
+                   <li><a href="blog.html">BLOG</a></li>
+           <li><a href="contact.html">CONTACT US</a></li>
+     
+                <li><a href="order.html"><button type="button" class="btn btn-success">ORDER NOW</button></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+ <!--========================================================-->    
+<section class="steps">
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+<h2 class="heading-1">Get Started in 3 Simple Steps</h2>
+</div><!--end of col-md-12-->
+</div><!--end of row-->
+<br>
+<!--=====================================-->
+
+<div class="row row-eq-height">
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="step-box">
+<div class="step-header">
+<h2 class="heading-1">STEP 1</h2>
+</div><!--end of step header-->
+
+<div class="step-content">
+<div class="form-group text-center">
+<h3 class="heading-1">Enter Word Count</h3>
+</div><!--end of form group-->
+<br>
+<div class="form-group">
+<div class="input-group">
+<input type="text" class="form-control"  placeholder="">
+<span class="input-group-btn">
+<button type="button" class="btn btn-default btn-success">GO</button>
+</span></div><!--end of input-group-->
+</div><!--end of form group-->
+
+<div class="form-group text-center">
+<h3>OR</h3>                        
+<span id="fileselector">
+<label class="btn btn-default btn-danger" for="upload-file-selector">
+<input id="upload-file-selector" type="file">
+<i class="fa_icon icon-upload-alt margin-correction"></i>Upload file
+</label></span><br>
+(Only .doc, .docx allowed)
+</div><!--end of form group-->
+
+</div><!--end of step content-->
+</div><!--end of step box-->
+</div><!--end of col-md-4-->
+
+<!--=======================================-->
+
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="step-box">
+<div class="step-header">
+<h2 class="heading-1">STEP 2</h2>
+</div><!--end of step header-->
+
+<div class="step-content">
+
+<div class="form-group text-center">
+<h3 class="heading-1">Choose Delivery Type</h3>
+</div><!--end of form group-->
+<br>
+                    <div class="form-group has-feedback">
+                        <label class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="test" value="0" />
+                            </span>
+                            <div class="form-control form-control-static">
+                               Express Delivery
+
+                            </div>
+                            <span class="glyphicon form-control-feedback "></span>
+                        </label>
+                    </div><!--end of form group-->
+                    <div class="form-group has-feedback ">
+                        <label class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="test" value="1" />
+                            </span>
+                            <div class="form-control form-control-static">
+                               Standard Delivery
+                            </div>
+                            <span class="glyphicon form-control-feedback "></span>
+                        </label>
+                    </div><!--end of form group-->
+                    
+                     <div class="form-group has-feedback ">
+                        <label class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="test" value="1" />
+                            </span>
+                            <div class="form-control form-control-static">
+                              Easy Delivery
+                            </div>
+                            <span class="glyphicon form-control-feedback "></span>
+                        </label>
+                    </div><!--end of form group-->        
+</div><!--end of step content-->
+</div><!--end of step box-->
+</div><!--end of col-md-4-->
+                  
+<!--=======================================-->
+
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="step-box">
+<div class="step-header">
+<h2 class="heading-1">STEP 3</h2>
+</div><!--end of step header-->
+
+<div class="step-content">
+
+<div class="form-group text-center">
+<h3 class="heading-1">Get Price Quote</h3>
+</div><!--end of form group-->
+<br>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Price">
+</div><!--end of form group-->                    
+         
+<div class="form-group">
+<button type="button" class="btn btn-success submit">SUBMIT</button>
+</div><!--end of form group-->             
+                     
+</div><!--end of step content-->
+</div><!--end of step box-->
+</div><!--end of col-md-4-->
+                  
+                        
+                   
+</div><!--end of row-->
+
+
+</div><!--end of container-->
+</div><!--end of container fluid-->
+</section>
+  
+  
+  <!--===============================================================-->
+  
+<section class="why-choose-us">
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+<h2 class="heading-1">Why Choose Us</h2>
+</div><!--end of col-md-12-->
+</div><!--end of row-->
+<br>
+
+<div class="row">
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="side-icon-box">
+<div class="side-icon"><img src="images/w-1.png" class="img-responsive"></div>
+<div class="side-icon-text">
+<h4 class="heading-1">Unbeatable and Affordable Prices</h4>
+<p>We maintain a system of competitive pricing. We refine and polish your documents at unbelievably low prices without any compromise on quality. In the unlikely event that you are not entirely satisfied with our services, we will revise your document absolutely for free.
+ </p>
+</div><!--end of side-icon-text-->
+</div><!--end of side-icon-box-->
+</div><!--end of col-md-6-->
+
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="side-icon-box">
+<div class="side-icon"><img src="images/w-2.png" class="img-responsive"></div>
+<div class="side-icon-text">
+<h4 class="heading-1">Prompt and Affordable Services Available 24/7</h4>
+<p>We are available for you at all times and offer our proofreading and editing services to you round-the-clock. We understand the gravity of precise deadlines and thus have a large in-house editorial team to service your needs on weekends, or holidays or odd hours. Our sole aim is to deliver your error-free document to you absolutely on time. </p>
+</div><!--end of side-icon-text-->
+</div><!--end of side-icon-box-->
+</div><!--end of col-md-6-->
+</div><!--end of row-->
+
+<!--==============================================-->
+<br>
+<div class="row">
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="side-icon-box">
+<div class="side-icon"><img src="images/w-3.png" class="img-responsive"></div>
+<div class="side-icon-text">
+<h4 class="heading-1">100% Satisfaction Guaranteed</h4>
+<p>We love nothing more than delivering your document with just the output you need and to ensure your 100 percent satisfaction. We improvise our service with your valuable feedback and suggestions and our expert editors make sure they understand and edit your content customised and tailored as per your requirements. </p>
+</div><!--end of side-icon-text-->
+</div><!--end of side-icon-box-->
+</div><!--end of col-md-6-->
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="side-icon-box">
+<div class="side-icon"><img src="images/w-4.png" class="img-responsive"></div>
+<div class="side-icon-text">
+<h4 class="heading-1">Confidential and Secure Service</h4>
+<p>Our service is absolutely safe and confidential. We use 256-bit SSL industry standard encryption technology to ensure the confidentiality and security of our service. Payments are taken through PayPal which is a globally accepted secure payment gateway that accepts all major debit/credit cards and does not require registration.</p>
+</div><!--end of side-icon-text-->
+</div><!--end of side-icon-box-->
+</div><!--end of col-md-6-->
+</div><!--end of row-->
+</div><!--end of container-->
+</div><!--end of container fluid-->
+</section>
+
+
+<!--===============================================================-->
+<section class="count">
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<ul class="count-list">
+<li><span>36343 +</span> customers</li>
+<li><span>98789+</span> documents</li>
+<li><span>853+</span> subjects</li>
+<li><span>154+</span> experts</li>
+<li><span>10+</span> years of experience</li>
+</ul>
+
+
+</div><!--end of col-md-12-->
+</div><!--end of row-->
+</div><!--end of container-->
+</div><!--end of container fluid-->
+</section>
+  <!--===============================================================-->
+  
+  
+<section class="editing-services">
+<div class="container-fluid editing-services-inside">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12 ">
+<div class="editing-services-box">
+<h3 class="heading-1">What Our English Editing Service Will Do</h3>
+<ul class="editing-list">
+<li>Check for all grammatical, punctuation, spelling, typographical and English language errors.</li>
+<li>Enhance clarity, style, paragraph, syntax and sentence structure.</li>
+<li>Appropriate tone, layout, font, number style, eliminate redundancy and ambiguity.</li>
+<li>Documents assigned to editors from your field to comprehend the technicality of your document.</li>
+<li>Provide you with valuable feedback on your writing skills and give you tips about how you can improve your English language.</li>
+<li>Correct all formatting including references, in-text citations, footnotes in several style guides such as Harvard, APA, MLA, OSCOLA, Chicago, MHRA, etc.</li>
+</ul>
+
+</div><!--end of editing services box-->
+
+</div><!--end of col-md-6-->
+
+
+</div><!--end of row-->
+</div><!--end of container-->
+</div><!--end of container fluid-->
+</section>  
+  
+  
+  
+  
+  
+  <section class="testimonials">
+<div class="container-fluid">
+<div class="container">
+<h2 class="heading-1 text-center">What Our Customers Are Saying</h2>
+<br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+      <div class="col-md-4">
+      <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******
+          services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+      <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div><!--end of col-md-4-->
+      
+      
+      <div class="col-md-4">
+      <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******
+          services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+       <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div><!--end of col-md-4-->
+      
+      
+      <div class="col-md-4">
+       <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******
+          services to me. They have an amazing customer support team which clarifies all my doubts. </p>
+       <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div> <!--end of col-md-4-->    
+        
+      </div><!--end of item-->
+
+      <div class="item">
+       <div class="col-md-4">
+      <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******rs services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+      <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div><!--end of col-md-4-->
+      
+      
+      <div class="col-md-4">
+      <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******s services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+       <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div><!--end of col-md-4-->
+      
+      
+      <div class="col-md-4">
+       <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ****** services to me. They have an amazing customer support team which clarifies all my doubts. </p>
+       <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div> <!--end of col-md-4-->    
+        
+      </div><!--end of item-->
+    
+      <div class="item">
+       <div class="col-md-4">
+      <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******
+          services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+      <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div><!--end of col-md-4-->
+      
+      
+      <div class="col-md-4">
+      <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******
+          services to me. They have an amazing customer support team which clarifies all my doubts.</p>
+       <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div><!--end of col-md-4-->
+      
+      
+      <div class="col-md-4">
+       <div class="testimony-box">
+      <p>Several editing companies unsuccessfully edited and proofread my MBA application for me but I still was not satisfied with their work. A friend recommended ******
+          services to me. They have an amazing customer support team which clarifies all my doubts. </p>
+       <span class="name"><h4>Sally Jones</h4>Manchester</span>
+      </div><!--end of testimony box-->
+      </div> <!--end of col-md-4-->    
+      </div><!--end of item-->
+    </div>
+
+    <!-- Left and right controls -->
+    <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>-->
+  </div>
+</div>
+</div><!--end of container fluid-->
+</section>
+  
+  
+  <!--========================================================-->
+  
+<section class="footer">
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+<div class="col-md-2 col-sm-2 col-xs-12">
+<h4>ACADEMIC</h4>
+<ul class="footer-link">
+<li><a href="thesis.html">Thesis</a></li>
+<li><a href="dissertion.html">Dissertation</a></li>
+<li><a href="essay-proofreading.html">Essay</a></li>
+<li><a href="assignment-proofreading.html">Assignment</a></li>
+<li><a href="academic-article-proofreading.html">Article</a></li>
+</ul>
+</div><!--end of col-md-2-->
+
+<div class="col-md-2 col-sm-2 col-xs-12">
+<h4>BUSINESS</h4>
+<ul class="footer-link">
+<li><a href="business1.html">Brochure</a></li>
+<li><a href="business1.html">Report</a></li>
+<li><a href="business1.html">Manual</a></li>
+<li><a href="business1.html">Press Release</a></li>
+<li><a href="business1.html">PDF Document</a></li>
+</ul>
+</div><!--end of col-md-2-->
+
+<div class="col-md-2 col-sm-2 col-xs-12">
+<h4>AUTHORS</h4>
+<ul class="footer-link">
+<li><a href="authors.html">Manuscript</a></li>
+<li><a href="authors.html">Screenplay</a></li>
+<li><a href="authors.html">Novel</a></li>
+<li><a href="authors.html">Magazine</a></li>
+<li><a href="authors.html">Poem</a></li>
+</ul>
+</div><!--end of col-md-2-->
+
+<div class="col-md-2 col-sm-2 col-xs-12">
+<h4>PERSONAL</h4>
+<ul class="footer-link">
+<li><a href="personal.html">Resume</a></li>
+<li><a href="personal.html">Cover Letter</a></li>
+<li><a href="personal.html">CV</a></li>
+<li><a href="personal.html">College Application</a></li>
+<li><a href="personal.html">ESL Document</a></li>
+</ul>
+</div><!--end of col-md-2-->
+
+
+<div class="col-md-2 col-sm-2 col-xs-12">
+<h4>ONLINE CONTENT</h4>
+<ul class="footer-link">
+<li><a href="online-content.html">Website Content</a></li>
+<li><a href="online-content.html">Blog Post</a></li>
+<li><a href="online-content.html">News Letter</a></li>
+<li><a href="online-content.html">Social Media Content</a></li>
+<li><a href="online-content.html">LinkedIn Profile</a></li>
+</ul>
+</div><!--end of col-md-2-->
+
+
+<div class="col-md-2 col-sm-2 col-xs-12">
+<h4>EDITING SERVICES</h4>
+<ul class="footer-link">
+<li><a href="order.html">Order Now</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+<li><a href="contact.html">Free Sample</a></li>
+<li><a href="terms-condition.html">Terms & Conditions</a></li>
+<li><a href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+<br>
+<ul class="social-link">
+<li><a href=""><i class="fa fa-facebook"></i></a></li>
+<li><a href=""><i class="fa fa-twitter"></i></a></li>
+<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+<li><a href=""><i class="fa fa-youtube"></i></a></li>
+</ul>
+</div><!--end of col-md-2-->
+
+</div><!--end of row-->
+</div><!--end of container-->
+</div><!--end of container fluid-->
+</section>
+  
+  
+<section class="small-footer">
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+© 2018 EditCompany. All rights reserved.
+</div><!--end of col-md-4-->
+
+
+</div><!--end of row-->
+</div><!--end of container-->
+</div><!--end of container fluid-->
+</section>
+  
+  
+  
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
