@@ -32,10 +32,9 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <ul class="top-list">
                             <li><h4><span class="icon"><i class="fa fa-phone"></i></span> +1 650 488 4532</h4></li>
-                            <div data-ng-hide="authentication.isAuth">    <a href="#/signin"><li><button type="button" class="btn btn-success">SIGN IN</button></li></a></div>
-                            <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
-                            <div data-ng-hide="!authentication.isAuth">    <a href="" data-ng-click="logOut()"><li><button type="button" class="btn btn-success">SIGN OUT</button></li></a></div>
-
+                            <li data-ng-hide="authentication.isAuth"><h4>    <a href="#/signin"><button type="button" class="btn btn-success">SIGN IN</button></a></></h4></li>
+                            <li data-ng-hide="!authentication.isAuth"><h4><a href="#">Welcome {{authentication.userName}}</a></h4></li>
+                            <li data-ng-hide="!authentication.isAuth"><h4><a href="" data-ng-click="logOut()">                            <button type="button" class="btn btn-success">SIGN OUT</button></a></h4></li>
                         </ul><!--end of top list-->
                     </div><!--end of col-md-12-->
                 </div><!--end of row-->
@@ -90,7 +89,7 @@
                     <li><a href="#/pricing">PRICING</a></li>
                     <li><a href="samples.html">SAMPLES</a></li>
                     <li><a href="#/faq">FAQ</a></li>
-                    <li><a href="reviews.html">REVIEWS</a></li>
+                    <!--<li><a href="reviews.html">REVIEWS</a></li>-->
                     <li><a href="#/blog">BLOG</a></li>
                     <li><a href="#/contact">CONTACT US</a></li>
 
