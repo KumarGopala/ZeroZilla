@@ -72,6 +72,7 @@
     <Content Include="app\controllers\refreshController.js" />
     <Content Include="app\controllers\signinController.js" />
     <Content Include="app\controllers\signupController.js" />
+    <Content Include="app\controllers\SimpleExampleController.js" />
     <Content Include="app\controllers\tokensManagerController.js" />
     <Content Include="app\directive.js" />
     <Content Include="app\services\authInterceptorService.js" />
@@ -103,6 +104,7 @@
     <Content Include="app\views\refresh.html" />
     <Content Include="app\views\signin.html" />
     <Content Include="app\views\signup.html" />
+    <Content Include="app\views\Simple.html" />
     <Content Include="app\views\tokens.html" />
     <Content Include="authComplete.html" />
     <Content Include="content\css\bootstrap-theme.css.map" />
@@ -197,6 +199,7 @@
     <Content Include="content\js\tracking.js" />
     <Content Include="index.html" />
     <Content Include="scripts\angular-local-storage.min.js" />
+    <Content Include="scripts\angular-stripe-checkout.js" />
     <Content Include="scripts\authComplete.js" />
     <Content Include="scripts\loading-bar.min.js" />
     <Content Include="scripts\SimpleAjaxUploader.js" />

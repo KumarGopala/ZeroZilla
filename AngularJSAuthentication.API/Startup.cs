@@ -11,6 +11,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Stripe;
+using System.Configuration;
 
 [assembly: OwinStartup(typeof(ZeroZilla.API.Startup))]
 
@@ -36,6 +38,8 @@ namespace ZeroZilla.API
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, ZeroZilla.API.Migrations.Configuration>());
+            //var key = ConfigurationManager.ConnectionStrings["SecretKey"].ToString();
+            StripeConfiguration.SetApiKey("sk_test_tRL3xG1liOrdbwAN84da1mWF");
 
         }
 

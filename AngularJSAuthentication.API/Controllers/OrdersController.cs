@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Stripe;
 using ZeroZilla.API.Models;
 using ZeroZilla.API.Repository;
 
@@ -18,6 +19,30 @@ namespace ZeroZilla.API.Controllers
         public OrdersController()
         {
             _orderRepository = new OrderRepository();
+        }
+
+        [HttpPost]
+        [Route("Charge")]
+        public IHttpActionResult Charge(Payment payment)
+        {
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = payment.StripeEmail,
+                SourceToken = payment.Token
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                Amount = 500,
+                Description = "Sample Charge",
+                Currency = "usd",
+                CustomerId = customer.Id
+            });
+
+            return Ok();
         }
 
         [Authorize]

@@ -1,5 +1,5 @@
 ﻿
-var app = angular.module('AngularAuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar']);
+var app = angular.module('AngularAuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar','stripe.checkout']);
 
 app.config(function ($routeProvider) {
 
@@ -69,10 +69,14 @@ app.config(function ($routeProvider) {
 
 
     $routeProvider.when("/OrderSuccess", {
-        controller: "ordersuccessController",
-        templateUrl: "/app/views/orderSuccess.html"
+        controller: "SimpleExampleController",
+        templateUrl: "/app/views/Simple.html"
     });
 
+    $routeProvider.when("/Simple", {
+        controller: "SimpleExampleController",
+        templateUrl: "/app/views/Simple.html"
+    });
 
     /*only ui*/
 
