@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +30,20 @@ namespace ZeroZilla.API.Repository
 
             return SqlHelper.ExecuteNonQuery(ConnectionString, "[dbo].[InsertOrder]", param);
                            
-        }                                                
-        
+        }
+
+
+        public DataSet GetOrder(string UserName)
+        {
+            var param = new object[1];
+            param[0] = UserName;
+            return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetOrder]", param);
+        }
+
+
+        public DataSet GetOrderAdmin()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetOrderAdmin]");
+        }
     }
 }
