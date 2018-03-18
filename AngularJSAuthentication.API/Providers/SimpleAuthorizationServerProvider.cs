@@ -98,6 +98,9 @@ namespace ZeroZilla.API.Providers
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+            if(context.UserName.ToLower()=="admin@zilla.com")
+                identity.AddClaim(new Claim(ClaimTypes.Role, "admin"));
+            else
             identity.AddClaim(new Claim(ClaimTypes.Role, "user"));
             identity.AddClaim(new Claim("sub", context.UserName));
             identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));

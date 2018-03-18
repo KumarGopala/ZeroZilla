@@ -78,8 +78,8 @@ namespace ZeroZilla.API
             //Configure Facebook External Login
             facebookAuthOptions = new FacebookAuthenticationOptions()
             {
-                AppId = "xxxxxx",
-                AppSecret = "xxxxxx",
+                AppId = "1937397259635036",
+                AppSecret = "ac310ee1545fe2468175e4f41f6de169",
                 Provider = new FacebookAuthProvider()
             };
             app.UseFacebookAuthentication(facebookAuthOptions);

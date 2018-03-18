@@ -98,12 +98,12 @@ namespace ZeroZilla.API.Controllers
 
             bool hasRegistered = user != null;
 
-            redirectUri = string.Format("{0}#external_access_token={1}&provider={2}&haslocalaccount={3}&external_user_name={4}&external_phone={5}",
+            redirectUri = string.Format("{0}#external_access_token={1}&provider={2}&haslocalaccount={3}&external_user_name={4}&external_phone={5}&external_email={6}",
                                             redirectUri,
                                             externalLogin.ExternalAccessToken,
                                             externalLogin.LoginProvider,
                                             hasRegistered.ToString(),
-                                            externalLogin.Email, externalLogin.Phone);
+                                            externalLogin.UserName, externalLogin.Phone, externalLogin.Email);
 
             return Redirect(redirectUri);
 

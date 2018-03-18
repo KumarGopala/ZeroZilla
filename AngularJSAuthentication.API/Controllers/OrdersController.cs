@@ -24,6 +24,7 @@ namespace ZeroZilla.API.Controllers
             _orderRepository = new OrderRepository();
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Charge")]
         public IHttpActionResult Charge(Payment payment)
@@ -58,6 +59,14 @@ namespace ZeroZilla.API.Controllers
             var user = ClaimsPrincipal.Current.Identity.Name;
             order.UserName = user;
             var result = await _orderRepository.CreateOrder(order);
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("all")]
+        public async Task<IHttpActionResult> GetOrders()
+        {
             return Ok();
         }
 
