@@ -29,6 +29,11 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/ordersAdmin.html"
     });
 
+    $routeProvider.when("/orderAdminUpdate", {
+        controller: "ordersAdminUpdateController",
+        templateUrl: "/app/views/ordersAdminUpdate.html"
+    });
+
     $routeProvider.when("/refresh", {
         controller: "refreshController",
         templateUrl: "/app/views/refresh.html"

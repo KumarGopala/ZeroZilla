@@ -45,5 +45,26 @@ namespace ZeroZilla.API.Repository
         {
             return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetOrderAdmin]");
         }
+
+        public DataSet GetOrderAdmin(int ID)
+        {
+            var param = new object[1];
+            param[0] = ID;
+            return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetAdminOrderDetail]", param);
+        }
+ 
+
+        public async Task<int> UpdateOrderStatus(Order order)
+        {
+            var param = new object[2];
+            param[0] = order.OrderID;
+            param[1] = order.JobStatus;
+            
+
+            return SqlHelper.ExecuteNonQuery(ConnectionString, "[dbo].[usp_UpdateOrderStatus]", param);
+
+        }
+        
+
     }
 }
