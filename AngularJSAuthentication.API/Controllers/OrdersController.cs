@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Stripe;
 using ZeroZilla.API.Models;
 using ZeroZilla.API.Repository;
+using ZeroZilla.API.Utility;
 
 namespace ZeroZilla.API.Controllers
 {
@@ -68,13 +71,17 @@ namespace ZeroZilla.API.Controllers
         {
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
             var user = ClaimsPrincipal.Current.Identity.Name;
-            List<OrderDetail> orders = new List<OrderDetail>();
-            orders.Add(new OrderDetail() { OrderDate = "2018-03-17 09:24", OrderDetailID = 5233, DisplayFileName = "testDoc.doc", StoredFileName = "testDoc-20180317121755.doc", PriceQuote = "500", PaymentStatus = "Pending", JobStatus = "In Process" });
-            orders.Add(new OrderDetail() { OrderDate = "2018-03-17 09:24", OrderDetailID = 4125, DisplayFileName = "testDoc.doc", StoredFileName = "testDoc-20180317121755.doc", PriceQuote = "500", PaymentStatus = "Pending", JobStatus = "In Process" });
-            //orders.Add(new Order() { DocumentType = "Academic", OrderID = 1, SubCategory = "Essay", EnglishStyle = "US English", Referencing = "IEEE", Requirments = "My First Order", UserName = "kumar" });
-            //orders.Add(new Order() { DocumentType = "Business", OrderID = 2, SubCategory = "Report", EnglishStyle = "UK English", Referencing = "", Requirments = "Business need", UserName = "kumar" });
-            return Ok(orders);
+
+            var result = _orderRepository.GetOrder(user.ToString());
+
+            List<OrderDetail> orderdetail = result.Tables[0].DataTableToList<OrderDetail>();
+ 
+            return Ok(orderdetail);
         }
+
+
+         
+
     }
 
 

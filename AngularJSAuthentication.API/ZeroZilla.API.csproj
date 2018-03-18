@@ -177,6 +177,7 @@
     <Compile Include="Repository\SQLHelper.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utility\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
