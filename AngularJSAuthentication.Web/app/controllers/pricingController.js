@@ -60,6 +60,17 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
         $scope.PlaceOrder = function () {
 
+            
+
+            if ($scope.filename == undefined) {
+                alert("Please upload the file");
+                return;
+            }
+            if ($scope.deliveryType == undefined) {
+                alert("Please select Delivery Type");
+                return;
+            }
+
             $scope.pricing = [];
             $scope.pricing.wordCount = $scope.wordCount;
             $scope.pricing.deliveryType = $scope.deliveryType;
@@ -87,7 +98,12 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                 data: { file: files }
             })
                 .then(function (response) {
+                    
+
                     $scope.filename = "Uploaded files : " + files[0].name;
+                    $rootScope.StoredFilename = response.data.docs[0].name;
+                    $rootScope.DisplayFilename = files[0].name;
+
                     $scope.wordCount =  response.data.counts;
 
                     
