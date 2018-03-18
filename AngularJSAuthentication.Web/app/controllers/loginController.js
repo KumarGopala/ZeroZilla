@@ -22,7 +22,7 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
     };
 
     $scope.authExternalProvider = function (provider) {
-        alert(ngAuthSettings.clientId);
+        //alert(ngAuthSettings.clientId);
         var redirectUri = location.protocol + '//' + location.host + '/authcomplete.html';
 
         var externalProviderUrl = ngAuthSettings.apiServiceBaseUri + "api/Account/ExternalLogin?provider=" + provider

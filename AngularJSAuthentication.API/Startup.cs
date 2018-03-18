@@ -37,9 +37,12 @@ namespace ZeroZilla.API
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, ZeroZilla.API.Migrations.Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, ZeroZilla.API.Migrations.Configuration>());
+            Database.SetInitializer<AuthContext>(null);
             //var key = ConfigurationManager.ConnectionStrings["SecretKey"].ToString();
             StripeConfiguration.SetApiKey("sk_test_tRL3xG1liOrdbwAN84da1mWF");
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, ZeroZilla.API.Migrations.Configuration>());
+           
 
         }
 
@@ -65,8 +68,9 @@ namespace ZeroZilla.API
             //Configure Google External Login
             googleAuthOptions = new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "844579736688-uhlg0h18699hujgcolf16muqg5npnpos.apps.googleusercontent.com",
-                ClientSecret = "zqal48trv0woW34Junlhg7kp",
+                ClientId = ConfigurationManager.AppSettings["Google_clientId"],
+            //"844579736688-uhlg0h18699hujgcolf16muqg5npnpos.apps.googleusercontent.com",
+                ClientSecret = ConfigurationManager.AppSettings["Google_secret"],//"zqal48trv0woW34Junlhg7kp",
                 Provider = new GoogleAuthProvider()
             };
             app.UseGoogleAuthentication(googleAuthOptions);

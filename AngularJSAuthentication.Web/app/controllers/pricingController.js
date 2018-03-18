@@ -21,12 +21,13 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                     alert("Please upload files or Enter word count");
                     return;
                 }
-
+                
                 $scope.getPriceQuote(wordCount, deliveryType);
             }
             else {
                 $scope.uploadFiles();
-                $scope.getPriceQuote(wordCount, deliveryType);
+                
+              
             }
 
           
@@ -35,12 +36,14 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
 
         $scope.getPriceQuote = function (wordCount, deliveryType) {
-
+            
             $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType).then(function (results) {
+                
                 $scope.PriceQuote = results.data;
             }, function (error) {
+                
                 $scope.PriceQuote = 0;
-                });
+            });
 
         }
 
@@ -86,7 +89,11 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                 .then(function (response) {
                     $scope.filename = "Uploaded files : " + files[0].name;
                     $scope.wordCount =  response.data.counts;
-                  
+
+                    
+                    $scope.getPriceQuote($scope.wordCount, $scope.deliveryType);
+
+
                 }, function (err) {
                     console.log("Error status: " + err.status);
                 });

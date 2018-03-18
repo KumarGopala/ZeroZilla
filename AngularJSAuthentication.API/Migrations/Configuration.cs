@@ -37,7 +37,8 @@ namespace ZeroZilla.API.Migrations
                     ApplicationType =  Models.ApplicationTypes.JavaScript, 
                     Active = true, 
                     RefreshTokenLifeTime = 7200, 
-                    AllowedOrigin = "http://ngauthenticationweb.azurewebsites.net"
+                    AllowedOrigin = "http://localhost:32150"
+                    //http://localhost:26264/
                 },
                 new Client
                 { Id = "consoleApp", 
