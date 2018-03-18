@@ -7,7 +7,7 @@ app.factory('ordersAdminService', ['$http', 'ngAuthSettings', function ($http, n
 
     var _getOrders = function () {
 
-        return $http.get(serviceBase + 'api/orders/Admin').then(function (results) {
+        return $http.get(serviceBase + 'api/orders/all').then(function (results) {
             return results;
         });
     };

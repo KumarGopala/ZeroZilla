@@ -84,6 +84,13 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/Simple.html"
     });
 
+    $routeProvider.when("/Order/all", {
+        controller: "ordersAdminController",
+        templateUrl: "/app/views/ordersAdmin.html"
+    });
+
+
+
     /*only ui*/
 
 
