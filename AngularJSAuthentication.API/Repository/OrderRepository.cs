@@ -15,16 +15,21 @@ namespace ZeroZilla.API.Repository
 
         public async Task<int> CreateOrder(Order order)
         {
-            var param = new object[6];
+            var param = new object[10];
             param[0] = order.UserName;
             param[1] = order.DocumentType;
             param[2] = order.SubCategory;
             param[3] = order.EnglishStyle;
             param[4] = order.Referencing;
             param[5] = order.Requirments;
+            param[6] = order.StoredFilename;
+            param[7] = order.PriceQuoted;
+            param[8] = order.WordCount;
+            param[9] = order.DeliveryType;
+
             return SqlHelper.ExecuteNonQuery(ConnectionString, "[dbo].[InsertOrder]", param);
-           
-        }
+                           
+        }                                                
         
     }
 }

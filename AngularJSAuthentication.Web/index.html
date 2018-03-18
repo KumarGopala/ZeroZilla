@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>index</title>
+    <title>Zerozilla</title>
 
     <!-- Bootstrap -->
     <link href="content/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
                         <ul class="top-list">
                             <li><h4><span class="icon"><i class="fa fa-phone"></i></span> +1 650 488 4532</h4></li>
                             <li data-ng-hide="authentication.isAuth"><h4>    <a href="#/signin"><button type="button" class="btn btn-success">SIGN IN</button></a></></h4></li>
-                            <li data-ng-hide="!authentication.isAuth"><h4><a href="#/orders">Welcome {{authentication.userName}}</a></h4></li>
+                            <li data-ng-hide="!authentication.isAuth"><h4><a href="#/orders" class="btn btn-success">Welcome {{authentication.userName}}</a></h4></li>
                             <li data-ng-hide="!authentication.isAuth"><h4><a href="" data-ng-click="logOut()"><button type="button" class="btn btn-success">SIGN OUT</button></a></h4></li>
                         </ul><!--end of top list-->
                     </div><!--end of col-md-12-->

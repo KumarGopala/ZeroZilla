@@ -14,6 +14,14 @@ namespace ZeroZilla.API.Models
         public string EnglishStyle { get; set; }
         public string Referencing { get; set; }
         public string Requirments { get; set; }
+        public string StoredFilename { get; set; }
+        public string PaymentStatus { get; set; }
+        public decimal PriceQuoted { get; set; }
+        public int WordCount { get; set; }
+        public string DeliveryType { get; set; }
+
+
+      
 
     }
 

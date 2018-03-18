@@ -47,11 +47,11 @@ namespace ZeroZilla.API
 
         public Client FindClient(string clientId)
         {
-            ClientRepository clientRepository = new ClientRepository();
-            return clientRepository.GetClient(clientId);
-            //var client = _ctx.Clients.Find(clientId);
+            //ClientRepository clientRepository = new ClientRepository();
+            //return clientRepository.GetClient(clientId);
+            var client = _ctx.Clients.Find(clientId);
 
-            //return client;
+            return client;
         }
 
         public async Task<bool> AddRefreshToken(RefreshToken token)
