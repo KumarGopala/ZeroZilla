@@ -19,9 +19,9 @@ namespace ZeroZilla.API.Models
         public decimal PriceQuoted { get; set; }
         public int WordCount { get; set; }
         public string DeliveryType { get; set; }
+        public string OrderDate { get; set; }
+        public string JobStatus { get; set; }
 
-
-      
 
     }
 

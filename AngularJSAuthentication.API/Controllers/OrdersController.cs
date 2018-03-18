@@ -51,7 +51,7 @@ namespace ZeroZilla.API.Controllers
 
         [Authorize]
         [HttpPost]
-        [Route("")]
+        [Route("Admin")]
         public async Task<IHttpActionResult> CreateOrder(Order order)
         {
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
@@ -80,7 +80,20 @@ namespace ZeroZilla.API.Controllers
         }
 
 
-         
+
+
+        [Authorize]
+        [HttpGet]
+        [Route("Admin")]
+        public async Task<IHttpActionResult> GetOrderAdmin()
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            var result = _orderRepository.GetOrderAdmin( );
+            List<Order> orderdetail = result.Tables[0].DataTableToList<Order>();
+            return Ok(orderdetail);
+        }
+
 
     }
 

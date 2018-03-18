@@ -37,10 +37,13 @@ namespace ZeroZilla.API.Repository
         {
             var param = new object[1];
             param[0] = UserName;
-
             return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetOrder]", param);
-
         }
 
+
+        public DataSet GetOrderAdmin()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetOrderAdmin]");
+        }
     }
 }
