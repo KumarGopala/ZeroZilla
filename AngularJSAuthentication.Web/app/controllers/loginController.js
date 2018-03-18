@@ -37,14 +37,15 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
 
         $scope.$apply(function () {
 
-            if (fragment.haslocalaccount == 'False') {
+            if (fragment.haslocalaccount === 'False') {
 
                 authService.logOut();
 
                 authService.externalAuthData = {
                     provider: fragment.provider,
                     userName: fragment.external_user_name,
-                    externalAccessToken: fragment.external_access_token
+                    externalAccessToken: fragment.external_access_token,
+                    phone: fragment.external_phone
                 };
 
                 $location.path('/associate');

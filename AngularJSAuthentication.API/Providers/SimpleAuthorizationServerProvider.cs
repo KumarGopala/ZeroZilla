@@ -84,10 +84,11 @@ namespace ZeroZilla.API.Providers
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
 
+            IdentityUser user = null;
             using (AuthRepository _repo = new AuthRepository())
             {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
-
+                user = await _repo.FindUser(context.UserName, context.Password);
+                
                 if (user == null)
                 {
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
@@ -99,6 +100,7 @@ namespace ZeroZilla.API.Providers
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             identity.AddClaim(new Claim(ClaimTypes.Role, "user"));
             identity.AddClaim(new Claim("sub", context.UserName));
+            identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
 
             var props = new AuthenticationProperties(new Dictionary<string, string>
                 {

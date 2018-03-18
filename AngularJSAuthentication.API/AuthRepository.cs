@@ -50,7 +50,6 @@ namespace ZeroZilla.API
             //ClientRepository clientRepository = new ClientRepository();
             //return clientRepository.GetClient(clientId);
             var client = _ctx.Clients.Find(clientId);
-
             return client;
         }
 

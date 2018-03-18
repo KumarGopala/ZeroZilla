@@ -98,12 +98,12 @@ namespace ZeroZilla.API.Controllers
 
             bool hasRegistered = user != null;
 
-            redirectUri = string.Format("{0}#external_access_token={1}&provider={2}&haslocalaccount={3}&external_user_name={4}",
+            redirectUri = string.Format("{0}#external_access_token={1}&provider={2}&haslocalaccount={3}&external_user_name={4}&external_phone={5}",
                                             redirectUri,
                                             externalLogin.ExternalAccessToken,
                                             externalLogin.LoginProvider,
                                             hasRegistered.ToString(),
-                                            externalLogin.UserName);
+                                            externalLogin.Email, externalLogin.Phone);
 
             return Redirect(redirectUri);
 
@@ -135,7 +135,7 @@ namespace ZeroZilla.API.Controllers
                 return BadRequest("External user is already registered");
             }
 
-            user = new IdentityUser() { UserName = model.UserName };
+            user = new IdentityUser() { UserName = model.UserName ,Email=model.Email,PhoneNumber=model.Phone};
 
             IdentityResult result = await _repo.CreateAsync(user);
             if (!result.Succeeded)
@@ -391,6 +391,9 @@ namespace ZeroZilla.API.Controllers
             public string ProviderKey { get; set; }
             public string UserName { get; set; }
             public string ExternalAccessToken { get; set; }
+            public string Email { get; set; }
+
+            public string Phone { get; set; }
 
             public static ExternalLoginData FromIdentity(ClaimsIdentity identity)
             {
@@ -416,6 +419,8 @@ namespace ZeroZilla.API.Controllers
                     LoginProvider = providerKeyClaim.Issuer,
                     ProviderKey = providerKeyClaim.Value,
                     UserName = identity.FindFirstValue(ClaimTypes.Name),
+                    Email=identity.FindFirstValue(ClaimTypes.Email),
+                    Phone=identity.FindFirstValue(ClaimTypes.MobilePhone),
                     ExternalAccessToken = identity.FindFirstValue("ExternalAccessToken"),
                 };
             }
