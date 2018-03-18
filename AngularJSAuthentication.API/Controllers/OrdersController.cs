@@ -41,7 +41,7 @@ namespace ZeroZilla.API.Controllers
             var charge = charges.Create(new StripeChargeCreateOptions
             {
                 Amount = payment.Price,
-                Description = "Sample Charge",
+                Description = "Zero Zilla",
                 Currency = "usd",
                 CustomerId = customer.Id
                 
@@ -64,17 +64,6 @@ namespace ZeroZilla.API.Controllers
 
         [Authorize]
         [HttpGet]
-        [Route("all")]
-        public async Task<IHttpActionResult> GetOrders()
-        {
-            return Ok();
-        }
-
-
-
-
-        [Authorize]
-        [HttpGet]
         [Route("")]
         public async Task<IHttpActionResult> GetOrder()
         {
@@ -93,7 +82,7 @@ namespace ZeroZilla.API.Controllers
 
         [Authorize]
         [HttpGet]
-        [Route("Admin")]
+        [Route("all")]
         public async Task<IHttpActionResult> GetOrderAdmin()
         {
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;

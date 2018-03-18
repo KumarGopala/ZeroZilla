@@ -40,7 +40,7 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
                 }
             }
         ).success(function (data) {
-            $location.path('/OrderSuccess');
+            $location.path('/orders');
 
         });
     }
