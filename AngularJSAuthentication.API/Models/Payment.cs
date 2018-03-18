@@ -10,5 +10,7 @@ namespace ZeroZilla.API.Models
         public string StripeEmail { get; set; }
 
         public string Token { get; set; }
+
+        public int Price { get; set; }
     }
 }

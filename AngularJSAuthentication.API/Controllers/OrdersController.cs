@@ -36,10 +36,11 @@ namespace ZeroZilla.API.Controllers
 
             var charge = charges.Create(new StripeChargeCreateOptions
             {
-                Amount = 500,
+                Amount = payment.Price,
                 Description = "Sample Charge",
                 Currency = "usd",
                 CustomerId = customer.Id
+                
             });
 
             return Ok();

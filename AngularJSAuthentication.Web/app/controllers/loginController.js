@@ -65,4 +65,8 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
 
         });
     }
+
+    $scope.signupRedirect = function () {
+        $location.path('/signup');
+    }
 }]);

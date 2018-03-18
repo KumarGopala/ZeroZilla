@@ -47,6 +47,15 @@ namespace ZeroZilla.API.Migrations
                     Active = true, 
                     RefreshTokenLifeTime = 14400, 
                     AllowedOrigin = "*"
+                },
+                new Client
+                { Id = "844579736688-uhlg0h18699hujgcolf16muqg5npnpos.apps.googleusercontent.com",
+                    Secret="zqal48trv0woW34Junlhg7kp",
+                    Name="Test",
+                    ApplicationType =Models.ApplicationTypes.NativeConfidential,
+                    Active = true,
+                    RefreshTokenLifeTime = 14400,
+                    AllowedOrigin = "http://localhost:32150"
                 }
             };
 

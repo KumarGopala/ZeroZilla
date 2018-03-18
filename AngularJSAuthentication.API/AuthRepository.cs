@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using ZeroZilla.API.Repository;
 
 namespace ZeroZilla.API
 {
@@ -29,7 +30,7 @@ namespace ZeroZilla.API
         {
             IdentityUser user = new IdentityUser
             {
-                UserName = userModel.UserName
+                UserName = userModel.UserName,Email= userModel.Email,PhoneNumber=userModel.Phone
             };
 
             var result = await _userManager.CreateAsync(user, userModel.Password);
@@ -46,9 +47,11 @@ namespace ZeroZilla.API
 
         public Client FindClient(string clientId)
         {
-            var client = _ctx.Clients.Find(clientId);
+            ClientRepository clientRepository = new ClientRepository();
+            return clientRepository.GetClient(clientId);
+            //var client = _ctx.Clients.Find(clientId);
 
-            return client;
+            //return client;
         }
 
         public async Task<bool> AddRefreshToken(RefreshToken token)

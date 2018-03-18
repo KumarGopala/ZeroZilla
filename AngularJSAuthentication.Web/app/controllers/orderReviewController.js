@@ -11,7 +11,7 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
     $scope.wordCount = $rootScope.pricing.wordCount
     $scope.deliveryType = $rootScope.pricing.deliveryType;
     $scope.PriceQuote = $rootScope.pricing.PriceQuote;
-
+    $scope.Price = $scope.PriceQuote * 100;
 
     $scope.orderReview = function () {
 
@@ -35,10 +35,30 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
             $location.path('/OrderSuccess');
 
         });
-
-
-
     }
 
+ 
+
+    $scope.doCheckout = function (token) {
+
+        alert("Got Stripe token: " + token.id);
+        var price = $scope.PriceQuote * 100;
+        var data = {
+            "StripeEmail": "kumarblue99@gmail.com", "Token": token.id, "Price": price
+        };
+
+        $http.post(
+            serviceBase + "api/Orders/Charge",
+            JSON.stringify(data),
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        ).success(function (data) {
+            $location.path('/OrderSuccess');
+
+        });
+    };
 
 }]);

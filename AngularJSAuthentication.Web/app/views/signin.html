@@ -40,7 +40,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-user"></i>
                             </span>
-                            <input type="text" class="form-control" name="username" placeholder="email address">
+                            <input type="text" class="form-control" data-ng-model="loginData.userName" name="username" placeholder="email address">
                         </div>
                         <br>
 
@@ -49,14 +49,17 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-lock"></i>
                             </span>
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <input type="password" class="form-control" data-ng-model="loginData.password" name="password" placeholder="Password">
                         </div>
                         <br>
 
 
                         <a href="">
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" data-ng-click="login()">Login</button>
                         </a>
+                        <div data-ng-hide="message == ''" class="alert alert-danger">
+                            {{message}}
+                        </div>
                     </form>
                 </div>
             </div>
@@ -70,7 +73,7 @@
                     </p>
                     <p>
                         Don't have an account?
-                        <a href="signup.html">Create Account</a>
+                        <a data-ng-click="signupRedirect()">Create Account</a>                        
                     </p>
                 </div>
             </div>
