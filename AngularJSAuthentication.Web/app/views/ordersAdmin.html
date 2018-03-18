@@ -26,7 +26,7 @@
                             <!--<td width="61" align="center"><strong>Action</strong></td>-->
                         </tr>
                         <tr ng-repeat="o in orders ">
-                            <td align="left"><a href='#'>{{o.orderID}}</a></td>
+                            <td align="left"><a href='#/orderAdminUpdate?ID={{o.orderID}}'>{{o.orderID}}</a></td>
                             <td align="center">{{o.orderDate |date}}</td>
                             <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFilename}}'>{{o.storedFilename}}</a></td>
                             <td align="center">{{o.priceQuoted | currency}}</td>

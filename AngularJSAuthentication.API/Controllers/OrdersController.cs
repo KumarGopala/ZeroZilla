@@ -93,6 +93,36 @@ namespace ZeroZilla.API.Controllers
         }
 
 
+
+        [Authorize]
+        [HttpGet]
+        [Route("OrderDetail/{ID}")]
+        public async Task<IHttpActionResult> GetAdminOrderDetail(int ID)
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            var result = _orderRepository.GetOrderAdmin(ID);
+            List<Order> orderdetail = result.Tables[0].DataTableToList<Order>();
+            return Ok(orderdetail);
+
+        }
+
+
+        [Authorize]
+        [HttpPut]
+        [Route("")]
+        public async Task<IHttpActionResult> UpdateOrderStatus(Order order)
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            var result = _orderRepository.UpdateOrderStatus(order);
+            return Ok();
+
+        }
+
+
+
+
     }
 
 
