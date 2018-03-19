@@ -10,7 +10,7 @@ using Owin;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
-namespace AngularJSAuthentication.API.Providers
+namespace ZeroZilla.API.Providers
 {
     public class GoogleAuthProvider : IGoogleOAuth2AuthenticationProvider
     {
@@ -22,6 +22,7 @@ namespace AngularJSAuthentication.API.Providers
         public Task Authenticated(GoogleOAuth2AuthenticatedContext context)
         {
             context.Identity.AddClaim(new Claim("ExternalAccessToken", context.AccessToken));
+            context.Identity.AddClaim(new Claim(ClaimTypes.Email, context.Email));
             return Task.FromResult<object>(null);
         }
 

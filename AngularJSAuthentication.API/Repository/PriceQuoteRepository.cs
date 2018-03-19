@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Dapper;
 
-namespace AngularJSAuthentication.API.Repository
+namespace ZeroZilla.API.Repository
 {
     public class PriceQuoteRepository
     {
@@ -17,19 +17,20 @@ namespace AngularJSAuthentication.API.Repository
 
         public async Task<decimal> GetPriceQuote(int wordcount, string deliverytype)
         {
-            decimal price;
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["AuthContext"].ToString()))
+            try
             {
-                SqlCommand sqlCommand = new SqlCommand("SP_GetPriceQuote", con);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add(new SqlParameter("@WordCount", wordcount));
-                sqlCommand.Parameters.Add(new SqlParameter("@DeliveryType", deliverytype));
-                con.Open();
-                var result = await sqlCommand.ExecuteScalarAsync();
-                con.Close();
-                Decimal.TryParse(result.ToString(), out price);
+                decimal price;
+                object[] param = new object[2];
+                param[0] = wordcount;
+                param[1] = deliverytype;
+                var result = SqlHelper.ExecuteScalar(ConnectionString, "SP_GetPriceQuote", param);
+                decimal.TryParse(result.ToString(), out price);
+                return price;
             }
-            return price;
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

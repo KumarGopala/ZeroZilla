@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AngularJSAuthentication.API.Models
+namespace ZeroZilla.API.Models
 {
     public class Order
     {
@@ -14,6 +14,28 @@ namespace AngularJSAuthentication.API.Models
         public string EnglishStyle { get; set; }
         public string Referencing { get; set; }
         public string Requirments { get; set; }
+        public string StoredFilename { get; set; }
+        public string PaymentStatus { get; set; }
+        public decimal PriceQuoted { get; set; }
+        public int WordCount { get; set; }
+        public string DeliveryType { get; set; }
+        public string OrderDate { get; set; }
+        public string JobStatus { get; set; }
+
+
+    }
+
+
+    public class OrderDetail
+    {
+        public int OrderDetailID { get; set; }
+        public string OrderDate { get; set; }
+        public string DisplayFileName { get; set; }
+        public string StoredFileName { get; set; }
+        public string PriceQuote { get; set; }
+        public string PaymentStatus{ get; set; }
+        public string JobStatus{ get; set; }
+        public string Action { get; set; }
 
     }
 }

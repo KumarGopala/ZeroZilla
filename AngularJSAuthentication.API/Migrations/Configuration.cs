@@ -1,20 +1,20 @@
-namespace AngularJSAuthentication.API.Migrations
+namespace ZeroZilla.API.Migrations
 {
-    using AngularJSAuthentication.API.Entities;
+    using ZeroZilla.API.Entities;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AngularJSAuthentication.API.AuthContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ZeroZilla.API.AuthContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(AngularJSAuthentication.API.AuthContext context)
+        protected override void Seed(ZeroZilla.API.AuthContext context)
         {
             if (context.Clients.Count() > 0)
             {
@@ -37,7 +37,8 @@ namespace AngularJSAuthentication.API.Migrations
                     ApplicationType =  Models.ApplicationTypes.JavaScript, 
                     Active = true, 
                     RefreshTokenLifeTime = 7200, 
-                    AllowedOrigin = "http://ngauthenticationweb.azurewebsites.net"
+                    AllowedOrigin = "http://localhost:32150"
+                    //http://localhost:26264/
                 },
                 new Client
                 { Id = "consoleApp", 
@@ -47,6 +48,15 @@ namespace AngularJSAuthentication.API.Migrations
                     Active = true, 
                     RefreshTokenLifeTime = 14400, 
                     AllowedOrigin = "*"
+                },
+                new Client
+                { Id = "844579736688-uhlg0h18699hujgcolf16muqg5npnpos.apps.googleusercontent.com",
+                    Secret="zqal48trv0woW34Junlhg7kp",
+                    Name="Test",
+                    ApplicationType =Models.ApplicationTypes.NativeConfidential,
+                    Active = true,
+                    RefreshTokenLifeTime = 14400,
+                    AllowedOrigin = "http://localhost:32150"
                 }
             };
 

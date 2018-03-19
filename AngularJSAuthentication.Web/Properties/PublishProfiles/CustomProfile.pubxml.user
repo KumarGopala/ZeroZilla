@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\ZeroZilla\Application</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="app/app.js">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/controllers/associateController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/controllers/blogController.js">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/controllers/homeController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/controllers/indexController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/controllers/loginController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/controllers/orderRequirementController.js">
+      <publishTime>03/10/2018 10:59:22</publishTime>
+    </File>
+    <File Include="app/controllers/orderReviewController.js">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/controllers/ordersController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/controllers/ordersuccessController.js">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/controllers/pricingController.js">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/controllers/refreshController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/controllers/signinController.js">
+      <publishTime>03/10/2018 00:10:10</publishTime>
+    </File>
+    <File Include="app/controllers/signupController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/controllers/tokensManagerController.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/directive.js">
+      <publishTime>03/10/2018 08:41:44</publishTime>
+    </File>
+    <File Include="app/services/authInterceptorService.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/services/authService.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/services/fileUpload.js">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/services/ordersService.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/services/pricingService.js">
+      <publishTime>03/10/2018 01:52:51</publishTime>
+    </File>
+    <File Include="app/services/sharedPropertiesService.js">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/services/tokensManagerService.js">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/services/utility.js">
+      <publishTime>03/09/2018 19:19:12</publishTime>
+    </File>
+    <File Include="app/views/academic.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/associate.html">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/views/authors.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/blog.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/business1.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/contact.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/faq.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/home.html">
+      <publishTime>03/09/2018 23:27:52</publishTime>
+    </File>
+    <File Include="app/views/login.html">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/views/online-content.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/orderRequirments.html">
+      <publishTime>03/10/2018 10:09:04</publishTime>
+    </File>
+    <File Include="app/views/orderReview.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/orders.html">
+      <publishTime>03/10/2018 01:02:56</publishTime>
+    </File>
+    <File Include="app/views/orderSuccess.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/personal.html">
+      <publishTime>03/10/2018 23:54:58</publishTime>
+    </File>
+    <File Include="app/views/pricing.html">
+      <publishTime>03/07/2018 21:43:44</publishTime>
+    </File>
+    <File Include="app/views/pricing1.html">
+      <publishTime>03/10/2018 10:30:54</publishTime>
+    </File>
+    <File Include="app/views/refresh.html">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/views/signin.html">
+      <publishTime>03/10/2018 00:14:05</publishTime>
+    </File>
+    <File Include="app/views/signup.html">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="app/views/tokens.html">
+      <publishTime>03/07/2018 14:36:40</publishTime>
+    </File>
+    <File Include="authComplete.html">
+      <publishTime>10/06/2014 21:04:02</publishTime>
+    </File>
+    <File Include="bin/AngularJSAuthentication.Web.dll">
+      <publishTime>03/11/2018 10:44:18</publishTime>
+    </File>
+    <File Include="bin/AngularJSAuthentication.Web.pdb">
+      <publishTime>03/11/2018 10:44:18</publishTime>
+    </File>
+    <File Include="content/css/bootstrap-theme.css">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/bootstrap-theme.css.map">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/bootstrap-theme.min.css">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/bootstrap-theme.min.css.map">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/bootstrap.css">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/bootstrap.css.map">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/bootstrap.min.css">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/bootstrap.min.css.map">
+      <publishTime>07/25/2016 15:53:28</publishTime>
+    </File>
+    <File Include="content/css/media.css">
+      <publishTime>01/30/2018 17:40:46</publishTime>
+    </File>
+    <File Include="content/css/style.css">
+      <publishTime>02/24/2018 18:31:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>07/25/2016 13:43:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>07/25/2016 13:43:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>07/25/2016 13:43:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>07/25/2016 13:43:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>07/25/2016 13:43:02</publishTime>
+    </File>
+    <File Include="content/images/academic-page.jpg">
+      <publishTime>01/31/2018 13:17:14</publishTime>
+    </File>
+    <File Include="content/images/academic.png">
+      <publishTime>01/29/2018 15:08:44</publishTime>
+    </File>
+    <File Include="content/images/author1.jpg">
+      <publishTime>02/01/2018 13:20:52</publishTime>
+    </File>
+    <File Include="content/images/author2.jpg">
+      <publishTime>02/01/2018 13:24:06</publishTime>
+    </File>
+    <File Include="content/images/author3.jpg">
+      <publishTime>02/01/2018 13:27:14</publishTime>
+    </File>
+    <File Include="content/images/authors.png">
+      <publishTime>01/29/2018 15:11:28</publishTime>
+    </File>
+    <File Include="content/images/blog1.jpg">
+      <publishTime>02/02/2018 12:57:24</publishTime>
+    </File>
+    <File Include="content/images/blog10.jpg">
+      <publishTime>02/24/2018 13:48:14</publishTime>
+    </File>
+    <File Include="content/images/blog2.png">
+      <publishTime>02/02/2018 12:59:28</publishTime>
+    </File>
+    <File Include="content/images/blog3.jpg">
+      <publishTime>02/02/2018 13:02:12</publishTime>
+    </File>
+    <File Include="content/images/blog4.jpg">
+      <publishTime>02/24/2018 12:48:14</publishTime>
+    </File>
+    <File Include="content/images/blog5.jpg">
+      <publishTime>02/24/2018 13:01:16</publishTime>
+    </File>
+    <File Include="content/images/blog6.png">
+      <publishTime>02/24/2018 13:13:28</publishTime>
+    </File>
+    <File Include="content/images/blog7.jpg">
+      <publishTime>02/24/2018 13:21:10</publishTime>
+    </File>
+    <File Include="content/images/blog8.jpg">
+      <publishTime>02/24/2018 13:38:48</publishTime>
+    </File>
+    <File Include="content/images/blog9.jpg">
+      <publishTime>02/24/2018 13:47:24</publishTime>
+    </File>
+    <File Include="content/images/blogs-img2.jpg">
+      <publishTime>02/24/2018 12:59:44</publishTime>
+    </File>
+    <File Include="content/images/blogs-img3.jpg">
+      <publishTime>02/24/2018 15:46:50</publishTime>
+    </File>
+    <File Include="content/images/business-main.jpg">
+      <publishTime>02/01/2018 11:21:22</publishTime>
+    </File>
+    <File Include="content/images/business.png">
+      <publishTime>01/29/2018 15:09:54</publishTime>
+    </File>
+    <File Include="content/images/business1.jpg">
+      <publishTime>02/01/2018 11:32:48</publishTime>
+    </File>
+    <File Include="content/images/contact.png">
+      <publishTime>02/02/2018 15:12:10</publishTime>
+    </File>
+    <File Include="content/images/content-marketing.png">
+      <publishTime>02/24/2018 13:12:10</publishTime>
+    </File>
+    <File Include="content/images/degree1.jpg">
+      <publishTime>02/12/2018 12:00:36</publishTime>
+    </File>
+    <File Include="content/images/dummy.png">
+      <publishTime>02/01/2018 17:25:14</publishTime>
+    </File>
+    <File Include="content/images/dummy1.png">
+      <publishTime>02/01/2018 17:30:48</publishTime>
+    </File>
+    <File Include="content/images/email.png">
+      <publishTime>02/02/2018 15:15:48</publishTime>
+    </File>
+    <File Include="content/images/logo.png">
+      <publishTime>01/30/2018 17:47:46</publishTime>
+    </File>
+    <File Include="content/images/mail.png">
+      <publishTime>02/02/2018 15:19:40</publishTime>
+    </File>
+    <File Include="content/images/main-background.jpg">
+      <publishTime>01/29/2018 13:14:22</publishTime>
+    </File>
+    <File Include="content/images/main-img.jpg">
+      <publishTime>01/29/2018 11:48:22</publishTime>
+    </File>
+    <File Include="content/images/officebus.jpg">
+      <publishTime>02/01/2018 11:25:46</publishTime>
+    </File>
+    <File Include="content/images/online-content.png">
+      <publishTime>01/29/2018 15:12:36</publishTime>
+    </File>
+    <File Include="content/images/online1.jpg">
+      <publishTime>02/01/2018 15:43:40</publishTime>
+    </File>
+    <File Include="content/images/or.png">
+      <publishTime>02/01/2018 13:12:44</publishTime>
+    </File>
+    <File Include="content/images/OR1.png">
+      <publishTime>02/10/2018 13:06:02</publishTime>
+    </File>
+    <File Include="content/images/or2.png">
+      <publishTime>02/10/2018 13:07:50</publishTime>
+    </File>
+    <File Include="content/images/or3.png">
+      <publishTime>02/10/2018 13:11:44</publishTime>
+    </File>
+    <File Include="content/images/personal.png">
+      <publishTime>01/29/2018 15:13:50</publishTime>
+    </File>
+    <File Include="content/images/phn 2.png">
+      <publishTime>02/02/2018 15:06:12</publishTime>
+    </File>
+    <File Include="content/images/phn.png">
+      <publishTime>02/02/2018 15:01:32</publishTime>
+    </File>
+    <File Include="content/images/phn1.png">
+      <publishTime>02/02/2018 15:14:36</publishTime>
+    </File>
+    <File Include="content/images/purple-paper-airplane.png">
+      <publishTime>01/30/2018 17:45:46</publishTime>
+    </File>
+    <File Include="content/images/resume.jpg">
+      <publishTime>02/01/2018 14:54:12</publishTime>
+    </File>
+    <File Include="content/images/resume1.jpg">
+      <publishTime>02/01/2018 14:56:24</publishTime>
+    </File>
+    <File Include="content/images/side-image.jpg">
+      <publishTime>01/30/2018 15:29:24</publishTime>
+    </File>
+    <File Include="content/images/symbol.png">
+      <publishTime>02/02/2018 15:17:18</publishTime>
+    </File>
+    <File Include="content/images/user-blog1.png">
+      <publishTime>02/24/2018 15:40:16</publishTime>
+    </File>
+    <File Include="content/images/w-1.png">
+      <publishTime>01/30/2018 12:37:44</publishTime>
+    </File>
+    <File Include="content/images/w-2.png">
+      <publishTime>01/30/2018 12:32:18</publishTime>
+    </File>
+    <File Include="content/images/w-3.png">
+      <publishTime>01/30/2018 12:25:02</publishTime>
+    </File>
+    <File Include="content/images/w-4.png">
+      <publishTime>01/30/2018 12:41:14</publishTime>
+    </File>
+    <File Include="content/images/Web.jpg">
+      <publishTime>01/31/2018 15:58:42</publishTime>
+    </File>
+    <File Include="content/images/Web1.jpg">
+      <publishTime>01/31/2018 16:20:04</publishTime>
+    </File>
+    <File Include="content/images/web2.jpeg">
+      <publishTime>01/31/2018 16:29:26</publishTime>
+    </File>
+    <File Include="content/images/Web2.jpg">
+      <publishTime>02/01/2018 11:32:52</publishTime>
+    </File>
+    <File Include="content/images/Web3.jpg">
+      <publishTime>02/01/2018 14:27:34</publishTime>
+    </File>
+    <File Include="content/images/Web4.jpg">
+      <publishTime>02/01/2018 15:57:58</publishTime>
+    </File>
+    <File Include="content/images/Web5.jpg">
+      <publishTime>02/01/2018 15:58:00</publishTime>
+    </File>
+    <File Include="content/js/bootstrap.js">
+      <publishTime>02/21/2018 19:42:44</publishTime>
+    </File>
+    <File Include="content/js/bootstrap.min.js">
+      <publishTime>07/25/2016 15:53:30</publishTime>
+    </File>
+    <File Include="content/js/custom.js">
+      <publishTime>01/29/2018 17:04:44</publishTime>
+    </File>
+    <File Include="content/js/npm.js">
+      <publishTime>07/25/2016 15:53:30</publishTime>
+    </File>
+    <File Include="content/js/tracking.js">
+      <publishTime>02/22/2018 13:48:30</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>03/11/2018 09:23:50</publishTime>
+    </File>
+    <File Include="scripts/angular-local-storage.min.js">
+      <publishTime>10/06/2014 21:04:02</publishTime>
+    </File>
+    <File Include="scripts/authComplete.js">
+      <publishTime>10/06/2014 21:04:02</publishTime>
+    </File>
+    <File Include="scripts/loading-bar.min.js">
+      <publishTime>10/06/2014 21:04:02</publishTime>
+    </File>
+    <File Include="scripts/SimpleAjaxUploader.js">
+      <publishTime>03/10/2018 08:21:44</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>03/11/2018 10:44:19</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

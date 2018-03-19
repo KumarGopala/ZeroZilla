@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AngularJSAuthentication.API.Models
+namespace ZeroZilla.API.Models
 {
     public class UserModel
     {
@@ -22,7 +22,14 @@ namespace AngularJSAuthentication.API.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string Phone { get; set; }
+
     }
 
-   
+
 }

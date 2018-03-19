@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
-using AngularJSAuthentication.API.Models;
-using AngularJSAuthentication.API.Repository;
+using Stripe;
+using ZeroZilla.API.Models;
+using ZeroZilla.API.Repository;
+using ZeroZilla.API.Utility;
 
-namespace AngularJSAuthentication.API.Controllers
+namespace ZeroZilla.API.Controllers
 {
     [RoutePrefix("api/Orders")]
     public class OrdersController : ApiController
@@ -22,24 +26,39 @@ namespace AngularJSAuthentication.API.Controllers
 
         [Authorize]
         [HttpPost]
+        [Route("Charge")]
+        public IHttpActionResult Charge(Payment payment)
+        {
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = payment.StripeEmail,
+                SourceToken = payment.Token
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                Amount = payment.Price,
+                Description = "Zero Zilla",
+                Currency = "usd",
+                CustomerId = customer.Id
+                
+            });
+
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpPost]
         [Route("")]
         public async Task<IHttpActionResult> CreateOrder(Order order)
         {
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
             var user = ClaimsPrincipal.Current.Identity.Name;
             order.UserName = user;
-            var result=await _orderRepository.CreateOrder(order);
-            return Ok();
-        }
-
-
-        [Authorize]
-        [HttpPost]
-        [Route("/test")]
-        public async Task<IHttpActionResult> Test (object order)
-        {
-            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
-            var user = ClaimsPrincipal.Current.Identity.Name;
+            var result = await _orderRepository.CreateOrder(order);
             return Ok();
         }
 
@@ -50,19 +69,66 @@ namespace AngularJSAuthentication.API.Controllers
         {
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
             var user = ClaimsPrincipal.Current.Identity.Name;
-            List<Order> orders = new List<Order>();
-            orders.Add(new Order() { DocumentType = "Academic", OrderID = 1, SubCategory = "Essay", EnglishStyle = "US English", Referencing = "IEEE", Requirments = "My First Order", UserName = "kumar" });
-            orders.Add(new Order() { DocumentType = "Business", OrderID = 2, SubCategory = "Report", EnglishStyle = "UK English", Referencing = "", Requirments = "Business need", UserName = "kumar" });
-            //order.UserName = user;
-            //var result = await _orderRepository.CreateOrder(order);
-            return Ok(orders);
+
+            var result = _orderRepository.GetOrder(user.ToString());
+
+            List<OrderDetail> orderdetail = result.Tables[0].DataTableToList<OrderDetail>();
+ 
+            return Ok(orderdetail);
         }
+
+
+
+
+        [Authorize]
+        [HttpGet]
+        [Route("all")]
+        public async Task<IHttpActionResult> GetOrderAdmin()
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            var result = _orderRepository.GetOrderAdmin( );
+            List<Order> orderdetail = result.Tables[0].DataTableToList<Order>();
+            return Ok(orderdetail);
+        }
+
+
+
+        [Authorize]
+        [HttpGet]
+        [Route("OrderDetail/{ID}")]
+        public async Task<IHttpActionResult> GetAdminOrderDetail(int ID)
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            var result = _orderRepository.GetOrderAdmin(ID);
+            List<Order> orderdetail = result.Tables[0].DataTableToList<Order>();
+            return Ok(orderdetail);
+
+        }
+
+
+        [Authorize]
+        [HttpPut]
+        [Route("")]
+        public async Task<IHttpActionResult> UpdateOrderStatus(Order order)
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var user = ClaimsPrincipal.Current.Identity.Name;
+            var result = _orderRepository.UpdateOrderStatus(order);
+            return Ok();
+
+        }
+
+
+
+
     }
 
 
     #region Helpers
 
-   
+
 
     #endregion
 }

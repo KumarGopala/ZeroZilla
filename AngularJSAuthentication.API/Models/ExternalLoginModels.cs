@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AngularJSAuthentication.API.Models
+namespace ZeroZilla.API.Models
 {
     public class ExternalLoginViewModel
     {
@@ -25,6 +25,10 @@ namespace AngularJSAuthentication.API.Models
 
          [Required]
          public string ExternalAccessToken { get; set; }
+
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
 
     }
 

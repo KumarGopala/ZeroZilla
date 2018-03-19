@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using AngularJSAuthentication.API.Models;
+using ZeroZilla.API.Models;
 
-namespace AngularJSAuthentication.API.Repository
+namespace ZeroZilla.API.Repository
 {
     public class OrderRepository
     {
@@ -15,21 +16,55 @@ namespace AngularJSAuthentication.API.Repository
 
         public async Task<int> CreateOrder(Order order)
         {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["AuthContext"].ToString()))
-            {
-                SqlCommand cmd = new SqlCommand("[dbo].[InsertOrder]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@UserName", order.UserName));
-                cmd.Parameters.Add(new SqlParameter("@DocumentType", order.DocumentType));
-                cmd.Parameters.Add(new SqlParameter("@SubCategory", order.SubCategory));
-                cmd.Parameters.Add(new SqlParameter("@EnglishStyle", order.EnglishStyle));
-                cmd.Parameters.Add(new SqlParameter("@Referencing", order.Referencing));
-                cmd.Parameters.Add(new SqlParameter("@Requirments", order.Requirments));
-                con.Open();
-                var result = await cmd.ExecuteNonQueryAsync();
-                return result;
-            }
+            var param = new object[10];
+            param[0] = order.UserName;
+            param[1] = order.DocumentType;
+            param[2] = order.SubCategory;
+            param[3] = order.EnglishStyle;
+            param[4] = order.Referencing;
+            param[5] = order.Requirments;
+            param[6] = order.StoredFilename;
+            param[7] = order.PriceQuoted;
+            param[8] = order.WordCount;
+            param[9] = order.DeliveryType;
+
+            return SqlHelper.ExecuteNonQuery(ConnectionString, "[dbo].[InsertOrder]", param);
+                           
+        }
+
+
+        public DataSet GetOrder(string UserName)
+        {
+            var param = new object[1];
+            param[0] = UserName;
+            return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetOrder]", param);
+        }
+
+
+        public DataSet GetOrderAdmin()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetOrderAdmin]");
+        }
+
+        public DataSet GetOrderAdmin(int ID)
+        {
+            var param = new object[1];
+            param[0] = ID;
+            return SqlHelper.ExecuteDataset(ConnectionString, "[dbo].[GetAdminOrderDetail]", param);
+        }
+ 
+
+        public async Task<int> UpdateOrderStatus(Order order)
+        {
+            var param = new object[2];
+            param[0] = order.OrderID;
+            param[1] = order.JobStatus;
+            
+
+            return SqlHelper.ExecuteNonQuery(ConnectionString, "[dbo].[usp_UpdateOrderStatus]", param);
+
         }
         
+
     }
 }

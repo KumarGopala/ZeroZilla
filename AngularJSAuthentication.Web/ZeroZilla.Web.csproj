@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AngularJSAuthentication.Web</RootNamespace>
-    <AssemblyName>AngularJSAuthentication.Web</AssemblyName>
+    <RootNamespace>ZeroZilla.Web</RootNamespace>
+    <AssemblyName>ZeroZilla.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -60,37 +60,71 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\associateController.js" />
+    <Content Include="app\controllers\blogController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\orderRequirementController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\orderReviewController.js" />
+    <Content Include="app\controllers\ordersAdminUpdateController.js" />
+    <Content Include="app\controllers\ordersAdminController.js" />
+    <Content Include="app\controllers\ordersuccessController.js" />
     <Content Include="app\controllers\pricingController.js" />
     <Content Include="app\controllers\ordersController.js" />
     <Content Include="app\controllers\refreshController.js" />
     <Content Include="app\controllers\signinController.js" />
     <Content Include="app\controllers\signupController.js" />
+    <Content Include="app\controllers\SimpleExampleController.js" />
     <Content Include="app\controllers\tokensManagerController.js" />
     <Content Include="app\directive.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\fileUpload.js" />
+    <Content Include="app\services\ordersAdminUpdateService.js" />
+    <Content Include="app\services\ordersAdminService.js" />
     <Content Include="app\services\pricingService.js" />
+    <Content Include="app\services\sharedPropertiesService.js" />
     <Content Include="app\services\utility.js" />
     <Content Include="app\services\ordersService.js" />
     <Content Include="app\services\tokensManagerService.js" />
+    <Content Include="app\views\academic.html" />
     <Content Include="app\views\associate.html" />
     <None Include="app\views\home.html.exclude" />
+    <Content Include="app\views\authors.html" />
+    <Content Include="app\views\blog.html" />
+    <Content Include="app\views\business1.html" />
+    <Content Include="app\views\contact.html" />
+    <Content Include="app\views\faq.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
+    <Content Include="app\views\online-content.html" />
+    <Content Include="app\views\ordersAdminUpdate.html" />
     <Content Include="app\views\orderRequirments.html" />
     <Content Include="app\views\orderReview.html" />
+    <Content Include="app\views\ordersAdmin.html" />
     <Content Include="app\views\orders.html" />
+    <Content Include="app\views\orderSuccess.html" />
+    <Content Include="app\views\personal.html" />
     <Content Include="app\views\pricing.html" />
     <Content Include="app\views\pricing1.html" />
     <Content Include="app\views\refresh.html" />
+    <Content Include="app\views\reviews.html" />
+    <Content Include="app\views\samples.html" />
     <Content Include="app\views\signin.html" />
     <Content Include="app\views\signup.html" />
+    <Content Include="app\views\Simple.html" />
     <Content Include="app\views\tokens.html" />
+    <Content Include="app\views\UI\academic\academic-article-proofreading.html" />
+    <Content Include="app\views\UI\academic\assignment-proofreading.html" />
+    <Content Include="app\views\UI\academic\dissertion.html" />
+    <Content Include="app\views\UI\academic\essay-proofreading.html" />
+    <Content Include="app\views\UI\academic\thesis.html" />
+    <Content Include="app\views\UI\authors\authors.html" />
+    <Content Include="app\views\UI\business\business1.html" />
+    <Content Include="app\views\UI\editing\privacy-policy.html" />
+    <Content Include="app\views\UI\editing\terms-condition.html" />
+    <Content Include="app\views\UI\online\online-content.html" />
+    <Content Include="app\views\UI\personal\personal.html" />
     <Content Include="authComplete.html" />
     <Content Include="content\css\bootstrap-theme.css.map" />
     <Content Include="content\css\bootstrap-theme.min.css.map" />
@@ -100,6 +134,9 @@
     <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\views\UI\editing\contact.html.exclude" />
+    <Content Include="app\views\UI\editing\pricing1.html.exclude" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\ngauthenticationweb.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -183,8 +220,15 @@
     <Content Include="content\js\tracking.js" />
     <Content Include="index.html" />
     <Content Include="scripts\angular-local-storage.min.js" />
+    <Content Include="scripts\angular-stripe-checkout.js" />
     <Content Include="scripts\authComplete.js" />
     <Content Include="scripts\loading-bar.min.js" />
+    <Content Include="scripts\ng-file-upload-all.js" />
+    <Content Include="scripts\ng-file-upload-all.min.js" />
+    <Content Include="scripts\ng-file-upload-shim.js" />
+    <Content Include="scripts\ng-file-upload-shim.min.js" />
+    <Content Include="scripts\ng-file-upload.js" />
+    <Content Include="scripts\ng-file-upload.min.js" />
     <Content Include="scripts\SimpleAjaxUploader.js" />
     <Content Include="Web.config" />
   </ItemGroup>

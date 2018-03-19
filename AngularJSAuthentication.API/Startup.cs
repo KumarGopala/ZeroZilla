@@ -1,4 +1,5 @@
-﻿using AngularJSAuthentication.API.Providers;
+﻿using ZeroZilla.API.Models;
+using ZeroZilla.API.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
@@ -10,10 +11,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Stripe;
+using System.Configuration;
 
-[assembly: OwinStartup(typeof(AngularJSAuthentication.API.Startup))]
+[assembly: OwinStartup(typeof(ZeroZilla.API.Startup))]
 
-namespace AngularJSAuthentication.API
+namespace ZeroZilla.API
 {
     public class Startup
     {
@@ -24,14 +27,22 @@ namespace AngularJSAuthentication.API
 
         public void Configuration(IAppBuilder app)
         {
+            
+            //LogWriter.WriteLog("Startup - Configuration");
+            //LogWriter.WriteLog("tests");
+
             HttpConfiguration config = new HttpConfiguration();
-
+            
             ConfigureOAuth(app);
-
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, AngularJSAuthentication.API.Migrations.Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, ZeroZilla.API.Migrations.Configuration>());
+            Database.SetInitializer<AuthContext>(null);
+            //var key = ConfigurationManager.ConnectionStrings["SecretKey"].ToString();
+            StripeConfiguration.SetApiKey("sk_test_tRL3xG1liOrdbwAN84da1mWF");
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, ZeroZilla.API.Migrations.Configuration>());
+           
 
         }
 
@@ -57,8 +68,9 @@ namespace AngularJSAuthentication.API
             //Configure Google External Login
             googleAuthOptions = new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "844579736688-uhlg0h18699hujgcolf16muqg5npnpos.apps.googleusercontent.com",
-                ClientSecret = "zqal48trv0woW34Junlhg7kp",
+                ClientId = ConfigurationManager.AppSettings["Google_clientId"],
+            //"844579736688-uhlg0h18699hujgcolf16muqg5npnpos.apps.googleusercontent.com",
+                ClientSecret = ConfigurationManager.AppSettings["Google_secret"],//"zqal48trv0woW34Junlhg7kp",
                 Provider = new GoogleAuthProvider()
             };
             app.UseGoogleAuthentication(googleAuthOptions);
@@ -66,8 +78,8 @@ namespace AngularJSAuthentication.API
             //Configure Facebook External Login
             facebookAuthOptions = new FacebookAuthenticationOptions()
             {
-                AppId = "xxxxxx",
-                AppSecret = "xxxxxx",
+                AppId = "1937397259635036",
+                AppSecret = "ac310ee1545fe2468175e4f41f6de169",
                 Provider = new FacebookAuthProvider()
             };
             app.UseFacebookAuthentication(facebookAuthOptions);

@@ -5,6 +5,16 @@ app.controller('orderRequirementController', ['$rootScope', '$scope', '$http', '
     $scope.OrderReview = function () {
 
         $scope.order = [];
+
+        if ($scope.DocType == undefined) {
+            alert("Please select document type");
+            return;
+        }
+        if ($scope.SubCatType == undefined) {
+            alert("Please select Subcategory type");
+            return;
+        }
+
         $scope.order.DocumentType = $scope.DocType;
         $scope.order.SubCategory = $scope.SubCatType;
         $scope.order.EnglishStyle = $scope.EngStyle;

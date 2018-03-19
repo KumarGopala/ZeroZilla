@@ -1,5 +1,5 @@
-﻿using AngularJSAuthentication.API.Entities;
-using AngularJSAuthentication.API.Models;
+﻿using ZeroZilla.API.Entities;
+using ZeroZilla.API.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -9,8 +9,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using ZeroZilla.API.Repository;
 
-namespace AngularJSAuthentication.API
+namespace ZeroZilla.API
 {
 
     public class AuthRepository : IDisposable
@@ -29,7 +30,7 @@ namespace AngularJSAuthentication.API
         {
             IdentityUser user = new IdentityUser
             {
-                UserName = userModel.UserName
+                UserName = userModel.UserName,Email= userModel.Email,PhoneNumber=userModel.Phone
             };
 
             var result = await _userManager.CreateAsync(user, userModel.Password);
@@ -46,8 +47,9 @@ namespace AngularJSAuthentication.API
 
         public Client FindClient(string clientId)
         {
+            //ClientRepository clientRepository = new ClientRepository();
+            //return clientRepository.GetClient(clientId);
             var client = _ctx.Clients.Find(clientId);
-
             return client;
         }
 

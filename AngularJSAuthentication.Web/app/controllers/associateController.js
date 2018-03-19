@@ -7,7 +7,9 @@ app.controller('associateController', ['$scope', '$location','$timeout','authSer
     $scope.registerData = {
         userName: authService.externalAuthData.userName,
         provider: authService.externalAuthData.provider,
-        externalAccessToken: authService.externalAuthData.externalAccessToken
+        externalAccessToken: authService.externalAuthData.externalAccessToken,
+        phone: authService.externalAuthData.phone,
+        email: authService.externalAuthData.email
     };
 
     $scope.registerExternal = function () {
@@ -15,7 +17,7 @@ app.controller('associateController', ['$scope', '$location','$timeout','authSer
         authService.registerExternal($scope.registerData).then(function (response) {
 
             $scope.savedSuccessfully = true;
-            $scope.message = "User has been registered successfully, you will be redicted to orders page in 2 seconds.";
+            $scope.message = "User has been registered successfully.";
             startTimer();
 
         },
@@ -31,7 +33,7 @@ app.controller('associateController', ['$scope', '$location','$timeout','authSer
     var startTimer = function () {
         var timer = $timeout(function () {
             $timeout.cancel(timer);
-            $location.path('/orders');
+            $location.path('/pricing');
         }, 2000);
     }
 

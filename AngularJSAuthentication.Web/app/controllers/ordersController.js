@@ -1,14 +1,24 @@
 ﻿'use strict';
-app.controller('ordersController', ['$scope', 'ordersService', function ($scope, ordersService) {
+app.controller('ordersController', ['$scope', 'ordersService', 'ngAuthSettings', 'authService','$location', function ($scope, ordersService, ngAuthSettings, authService, $location) {
+    $scope.authentication = authService.authentication;
+    if ($scope.authentication.userName === "admin@Zilla.com") {
+        $location.path('/Order/all');
 
-    $scope.orders = [];
+    }
+    else {
 
-    ordersService.getOrders().then(function (results) {
+        $scope.orders = [];
 
-        $scope.orders = results.data;
+        $scope.serviceBase = ngAuthSettings.apiServiceBaseUri;
 
-    }, function (error) {
-        //alert(error.data.message);
-    });
+        ordersService.getOrders().then(function (results) {
 
+            $scope.orders = results.data;
+
+        }, function (error) {
+            console.log(error.data.message);
+        });
+    }
+
+    
 }]);

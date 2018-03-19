@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 
-namespace AngularJSAuthentication.API
+namespace ZeroZilla.API
 {
     public class Helper
     {

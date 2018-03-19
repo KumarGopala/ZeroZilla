@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AngularJSAuthentication.API.Entities
+namespace ZeroZilla.API.Entities
 {
     public class RefreshToken
     {

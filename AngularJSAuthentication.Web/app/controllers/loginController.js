@@ -13,7 +13,7 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
 
         authService.login($scope.loginData).then(function (response) {
 
-            $location.path('/orders');
+            $location.path('/pricing');
 
         },
          function (err) {
@@ -22,7 +22,7 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
     };
 
     $scope.authExternalProvider = function (provider) {
-        alert(ngAuthSettings.clientId);
+        //alert(ngAuthSettings.clientId);
         var redirectUri = location.protocol + '//' + location.host + '/authcomplete.html';
 
         var externalProviderUrl = ngAuthSettings.apiServiceBaseUri + "api/Account/ExternalLogin?provider=" + provider
@@ -37,14 +37,16 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
 
         $scope.$apply(function () {
 
-            if (fragment.haslocalaccount == 'False') {
+            if (fragment.haslocalaccount === 'False') {
 
                 authService.logOut();
 
                 authService.externalAuthData = {
                     provider: fragment.provider,
                     userName: fragment.external_user_name,
-                    externalAccessToken: fragment.external_access_token
+                    externalAccessToken: fragment.external_access_token,
+                    phone: fragment.external_phone,
+                    email: fragment.external_email
                 };
 
                 $location.path('/associate');
@@ -55,7 +57,7 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
                 var externalData = { provider: fragment.provider, externalAccessToken: fragment.external_access_token };
                 authService.obtainAccessToken(externalData).then(function (response) {
 
-                    $location.path('/orders');
+                    $location.path('/pricing');
 
                 },
              function (err) {
@@ -64,5 +66,9 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
             }
 
         });
+    }
+
+    $scope.signupRedirect = function () {
+        $location.path('/signup');
     }
 }]);
