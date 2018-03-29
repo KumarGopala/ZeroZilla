@@ -109,8 +109,8 @@ namespace ZeroZilla.API.Controllers
 
 
         [Authorize]
-        [HttpPut]
-        [Route("")]
+        [HttpPost]
+        [Route("update")]
         public async Task<IHttpActionResult> UpdateOrderStatus(Order order)
         {
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;

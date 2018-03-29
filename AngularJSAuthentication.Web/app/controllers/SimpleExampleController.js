@@ -2,8 +2,7 @@
 app.controller("SimpleExampleController", ['$scope', '$location', '$timeout', '$http', function ($scope, $location, $timeout, $http) {
     $scope.doCheckout = function (token) {
 
-        alert("Got Stripe token: " + token.id);
-
+        
         var data = {
             "StripeEmail" : "kumarblue99@gmail.com", "Token": token.id
         };
