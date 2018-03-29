@@ -26,7 +26,6 @@ app.controller('ordersAdminUpdateController', ['$scope', 'ordersAdminUpdateServi
 
 
         $scope.Submit = function () {
-            debugger;
             var totaldata = {
                 "OrderId": ID, "JobStatus": $scope.orders[0].jobStatus
             };
@@ -40,9 +39,9 @@ app.controller('ordersAdminUpdateController', ['$scope', 'ordersAdminUpdateServi
                     }
                 }
             ).success(function (data) {
-
+                
                 $location.path("/Order/all");
-
+                $location.path('/orderAdmin');
 
             });
         }
