@@ -201,7 +201,10 @@ app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: '844579736688-uhlg0h18699hujgcolf16muqg5npnpos.apps.googleusercontent.com'
 });
-
+app.config(function (localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setPrefix('zeroZilla');
+});
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });

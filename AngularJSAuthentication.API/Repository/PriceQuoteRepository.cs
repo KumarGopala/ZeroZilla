@@ -15,14 +15,15 @@ namespace ZeroZilla.API.Repository
     {
         private static string ConnectionString = ConfigurationManager.ConnectionStrings["AuthContext"].ToString();
 
-        public async Task<decimal> GetPriceQuote(int wordcount, string deliverytype)
+        public async Task<decimal> GetPriceQuote(int wordcount, string deliverytype, string currency)
         {
             try
             {
                 decimal price;
-                object[] param = new object[2];
+                object[] param = new object[3];
                 param[0] = wordcount;
                 param[1] = deliverytype;
+                param[2] = currency;
                 var result = SqlHelper.ExecuteScalar(ConnectionString, "SP_GetPriceQuote", param);
                 decimal.TryParse(result.ToString(), out price);
                 return price;

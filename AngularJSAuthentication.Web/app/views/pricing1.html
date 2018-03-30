@@ -142,10 +142,13 @@
                             <br>
                             <div class="form-group">
                                 <input type="text" class="form-control" readonly="readonly" placeholder="Price" data-ng-model="PriceQuote">
+                                <select ng-model="selectedCurrency" ng-options="x for x in currencyList" ng-change="currencyChange()">
+                                    
+                                </select>
                             </div><!--end of form group-->
 
                             <div class="form-group">
-                                <button type="button" class="btn btn-success submit" data-ng-click="PlaceOrder()">SUBMIT</button>
+                                <button type="button" class="btn btn-success submit"  data-ng-click="PlaceOrder()">SUBMIT</button>
                             </div><!--end of form group-->
 
                         </div><!--end of step content-->
