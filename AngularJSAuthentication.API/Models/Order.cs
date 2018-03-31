@@ -22,6 +22,11 @@ namespace ZeroZilla.API.Models
         public string OrderDate { get; set; }
         public string JobStatus { get; set; }
 
+        public string Currency { get; set; }
+        public string ReferenceStoredFilename { get; set; }
+        public string ReferenceDisplayFilename { get; set; }
+        public string DisplayFilename { get; set; }
+
 
     }
 

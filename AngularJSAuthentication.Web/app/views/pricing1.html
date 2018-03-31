@@ -154,9 +154,9 @@
                                 <h3 class="heading-1">Your Quote</h3>
                             </div><!--end of form group-->
                             <br>
-                            <div class="form-group" ng-init="selectedCurrency.value='$'">
+                            <div class="form-group" >
                                 <div class="col-xs-7">
-                                    <input type="text" class="form-control" readonly="readonly" placeholder="Price" value="{{PriceQuote| currency:currencySelected.value}}">
+                                    <input type="text" class="form-control" readonly="readonly" placeholder="Price" value="{{PriceQuote | currency : currencySelected.value}}">
                                 </div>
                                 <div class="col-xs-5">
                                     <select ng-model="currencySelected" ng-change="currencyChange()" style="border: 1px solid #2d97c5;box-shadow: none;padding: 0;margin-left: 5px;height: 30px;"

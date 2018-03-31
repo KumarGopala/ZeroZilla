@@ -5,7 +5,7 @@
     <div class="loginbox">
         <div class=" table-responsive">
             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
-               <tr>
+                <tr>
                     <td>
                         File Name:
                     </td>
@@ -23,22 +23,27 @@
                     </td>
                     <td></td>
                 </tr>
-			 
-			 
-			    <tr>
+
+
+                <tr>
                     <td>
-                        File Name:
+                        Reference File:<br />
+                        (Only .doc, .docx, .pdf, .zip allowed)
                     </td>
                     <td>
-                        <a target='_blank' href='{{serviceBase}}Uploads/{{StoredFilename}}'>{{DisplayFileName}}</a>    <input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true">
-                        <button type="button" class="btn btn-default btn-success" data-ng-click="uploadFiles()">Upload</button>
+                        <input type="file" id="newfile" class="uploadFile" accept=".doc,.docx,.zip,.pdf" ngf-select ng-model="files" ng-multiple="true">
+                         
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Word Count:
                     </td>
-                    <td>{{wordCount}}</td>
+                    <td>
+
+                        <input type="text" class="form-control" placeholder="" data-ng-model="wordCount" style="width:200px;">
+                        <button type="button" class="btn btn-default btn-success" data-ng-click="getPriceQuote(wordCount)">Calculate</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -50,7 +55,17 @@
                     <td>
                         Price Quote:
                     </td>
-                    <td>{{PriceQuote}}</td>
+                    <td>
+                        <div class="col-xs-5">
+                            {{PriceQuote | currency : currencySelected.value}}
+                        </div>  <!--<div class="col-xs-5">
+                            <select ng-model="currencySelected" ng-change="currencyChange()" style="border: 1px solid #2d97c5;box-shadow: none;padding: 0;margin-left: 5px;height: 30px;"
+                                    ng-options="currency as currency.label for currency in currencyList">
+                                >
+                            </select>
+                        </div>-->
+                    </td>
+
                 </tr>
                 <tr>
                     <td>
@@ -93,7 +108,7 @@
                     data-key="pk_test_vwrEXVUzBFh6Jn2CESsK6MYA"
                     data-name="Zero Zilla"
                     data-description="Payment Gateway"
-                    data-amount="{{Price}}">
+                    data-amount="{{Price }}">
                 Buy
             </button>
         </div>

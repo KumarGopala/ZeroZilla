@@ -224,6 +224,7 @@
     <Content Include="scripts\angular-local-storage.min.js" />
     <Content Include="scripts\angular-stripe-checkout.js" />
     <Content Include="scripts\authComplete.js" />
+    <Content Include="scripts\dirPagination.js" />
     <Content Include="scripts\loading-bar.min.js" />
     <Content Include="scripts\ng-file-upload-all.js" />
     <Content Include="scripts\ng-file-upload-all.min.js" />

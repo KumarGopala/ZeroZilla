@@ -161,6 +161,58 @@ namespace ZeroZilla.API.Controllers
             }
         }
 
+
+
+        [Route("filesReferenceFile")]
+        public async Task<IHttpActionResult> AddReferenceFile()
+        {
+            // Check if the request contains multipart/form-data.
+            if (!Request.Content.IsMimeMultipartContent("form-data"))
+            {
+                return BadRequest("Unsupported media type");
+            }
+            try
+            {
+                var provider = new CustomMultipartFormDataStreamProvider(workingFolder);
+                //await Request.Content.ReadAsMultipartAsync(provider);
+                await Task.Run(async () => await Request.Content.ReadAsMultipartAsync(provider));
+
+                var docs = new List<DocViewModel>();
+                
+                foreach (var file in provider.FileData)
+                {
+                    var fileInfo = new FileInfo(file.LocalFileName);
+
+                    docs.Add(new DocViewModel
+                    {
+                        Name = fileInfo.Name,
+                        Created = fileInfo.CreationTime,
+                        Modified = fileInfo.LastWriteTime,
+                        Size = fileInfo.Length / 1024
+                    });
+
+
+                 
+                    string displayFileName = file.Headers.ContentDisposition.FileName.ToString().Replace("\"", "");
+
+
+                    // post displayfilename and filename to db
+                }
+
+
+
+                //return Ok(count);
+
+                return Ok(new { Message = "Doc uploaded ok", docs = docs  });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.GetBaseException().Message);
+            }
+        }
+
+
+
         /// <summary>
         ///   Check if file exists on disk
         /// </summary>

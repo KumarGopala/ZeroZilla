@@ -60,14 +60,14 @@ app.controller('pricingController', ['$rootScope', '$scope', '$http', 'ngAuthSet
         }, {
             value: '£',
             label: 'GBP'
-            }];
+        }];
 
         $scope.currencySelected = $scope.currencyList[0];
 
         $scope.getPriceQuote = function (wordCount, deliveryType, currency) {
 
 
-            debugger;
+        
 
             $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType + '/' + currency).then(function (results) {
                 $scope.PriceQuote = results.data;
@@ -110,6 +110,13 @@ app.controller('pricingController', ['$rootScope', '$scope', '$http', 'ngAuthSet
             $scope.pricing.PriceQuote = $scope.PriceQuote;
 
             $rootScope.pricing = $scope.pricing;
+           
+            
+            $rootScope.currencySelected = $scope.currencySelected;
+
+
+
+
             if (!authService.authentication.isAuth) {
                 localStorageService.set('wordCount', $scope.pricing.wordCount);
                 localStorageService.set('deliveryType', $scope.pricing.deliveryType);
@@ -155,7 +162,7 @@ app.controller('pricingController', ['$rootScope', '$scope', '$http', 'ngAuthSet
 
         $scope.currencyChange = function () {
 
-
+           
             $scope.getPriceQuote($scope.wordCount, $scope.deliveryType, $scope.currencySelected.label);
         }
     }]);
