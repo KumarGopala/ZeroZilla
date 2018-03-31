@@ -130,6 +130,8 @@
     <Content Include="content\css\bootstrap-theme.min.css.map" />
     <Content Include="content\css\bootstrap.css.map" />
     <Content Include="content\css\bootstrap.min.css.map" />
+    <Content Include="content\css\loading-bar.css" />
+    <Content Include="content\css\loading-bar.min.css" />
     <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\fonts\glyphicons-halflings-regular.woff" />

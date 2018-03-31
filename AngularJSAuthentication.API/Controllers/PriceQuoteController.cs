@@ -25,14 +25,14 @@ namespace ZeroZilla.API.Controllers
         }
         [AllowAnonymous]
         [HttpGet]
-        [Route("price/{wordCount}/{deliveryType}")]
-        public async Task<IHttpActionResult> Get(int wordCount, string deliveryType)
+        [Route("price/{wordCount}/{deliveryType}/{currency}")]
+        public async Task<IHttpActionResult> Get(int wordCount, string deliveryType, string currency = "USD")
         {
             if (wordCount < 0 || string.IsNullOrWhiteSpace(deliveryType))
             {
                 return BadRequest("Invalid Word Count or Delivery Type");
             }
-            var response = await _repo.GetPriceQuote(wordCount, deliveryType);
+            var response = await _repo.GetPriceQuote(wordCount, deliveryType, currency);
             return Ok(response);
         }
 
@@ -142,14 +142,14 @@ namespace ZeroZilla.API.Controllers
 
                     Document doc = new Document();
                     doc.LoadFromFile(file.LocalFileName, FileFormat.Docx2010);
-                    count = doc.BuiltinDocumentProperties.WordCount;
+                    count = doc.BuiltinDocumentProperties.WordCount - 3;
                     string displayFileName = file.Headers.ContentDisposition.FileName.ToString().Replace("\"", "");
 
 
                     // post displayfilename and filename to db
                 }
 
-                
+
 
                 //return Ok(count);
 

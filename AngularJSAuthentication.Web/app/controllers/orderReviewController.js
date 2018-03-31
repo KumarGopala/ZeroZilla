@@ -1,5 +1,6 @@
 ﻿'use strict';
-app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAuthSettings', '$location', function ($rootScope, $scope, $http, ngAuthSettings, $location) {
+app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAuthSettings', '$location', "Upload",
+    function ($rootScope, $scope, $http, ngAuthSettings, $location, Upload) {
 
 
     var serviceBase = ngAuthSettings.apiServiceBaseUri;
@@ -45,6 +46,34 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
         });
     }
 
+
+
+
+    $scope.uploadFiles = function () {
+        debugger;
+        var files = $scope.files;
+        //vm.spinner.active = true;
+        Upload.upload({
+            url: serviceBase + "api/PriceQuote/files",
+            data: { file: files }
+        })
+            .then(function (response) {
+
+
+                //$scope.filename = "Uploaded files : " + files[0].name;
+                $scope.StoredFilename = response.data.docs[0].name;
+                $scope.DisplayFileName = files[0].name;
+
+                $scope.wordCount = response.data.counts;
+
+
+
+            }, function (err) {
+                console.log("Error status: " + err.status);
+            });
+
+
+    }
 
 
     $scope.doCheckout = function (token) {

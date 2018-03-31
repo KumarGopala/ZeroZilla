@@ -1,13 +1,19 @@
 ﻿'use strict';
-app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '$http', 'ngAuthSettings', 'authService', '$location',
-    "$window", "Upload", //"apiUrl",
-    function ($rootScope, $scope, pricingService, $http, ngAuthSettings, authService, $location, $window, Upload) {
-
-        var cnt = $scope.wordCount;
+app.controller('pricingController', ['$rootScope', '$scope', '$http', 'ngAuthSettings', 'authService', '$location',
+    "$window", "Upload","localStorageService",
+function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $window, Upload,localStorageService) {
+         var cnt = $scope.wordCount;
         $scope.pricing = [];
         $scope.files = [];
-
+        $scope.selectedCurrency = "USD";
         var serviceBase = ngAuthSettings.apiServiceBaseUri;
+        $scope.wordCount = localStorageService.get('wordCount');
+        $scope.deliveryType = localStorageService.get('deliveryType');
+        $scope.PriceQuote = localStorageService.get('PriceQuote');
+        localStorageService.remove("PriceQuote");
+        localStorageService.remove("deliveryType");
+        localStorageService.remove("wordCount");
+
         $scope.GetPrice = function (wordCount, deliveryType) {
 
             var files = $scope.files;
@@ -22,26 +28,19 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                     return;
                 }
                 
-                $scope.getPriceQuote(wordCount, deliveryType);
+                $scope.getPriceQuote(wordCount, deliveryType, $scope.selectedCurrency);
             }
             else {
                 $scope.uploadFiles();
-                
-              
             }
-
-          
-
         }
 
+        $scope.currencyList = ["USD", "EUR"];
 
-        $scope.getPriceQuote = function (wordCount, deliveryType) {
-            
-            $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType).then(function (results) {
-                
+        $scope.getPriceQuote = function (wordCount, deliveryType, currency) {                     
+            $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType +'/' + currency).then(function (results) {                
                 $scope.PriceQuote = results.data;
-            }, function (error) {
-                
+            }, function (error) {                
                 $scope.PriceQuote = 0;
             });
 
@@ -60,13 +59,17 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
 
         $scope.PlaceOrder = function () {
 
-            
-
-            if ($scope.filename == undefined) {
-                alert("Please upload the file");
+            if ($scope.PriceQuote == undefined || $scope.PriceQuote < 1)
+            {
+                alert("Please enter word count and click GO to proceed");
                 return;
             }
-            if ($scope.deliveryType == undefined) {
+
+            if ($scope.wordCount == undefined || $scope.wordCount == 0) {
+                alert("Please enter word count to proceed");
+                return;
+            }
+           if ($scope.deliveryType == undefined) {
                 alert("Please select Delivery Type");
                 return;
             }
@@ -76,9 +79,11 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
             $scope.pricing.deliveryType = $scope.deliveryType;
             $scope.pricing.PriceQuote = $scope.PriceQuote;
 
-            $rootScope.pricing = $scope.pricing;
-
+            $rootScope.pricing = $scope.pricing;            
             if (!authService.authentication.isAuth) {
+                localStorageService.set('wordCount', $scope.pricing.wordCount);
+                localStorageService.set('deliveryType', $scope.pricing.deliveryType);
+                localStorageService.set('PriceQuote', $scope.pricing.PriceQuote);
                 $location.path('/signin');
             }
             else {
@@ -107,7 +112,7 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
                     $scope.wordCount =  response.data.counts;
 
                     
-                    $scope.getPriceQuote($scope.wordCount, $scope.deliveryType);
+                    $scope.getPriceQuote($scope.wordCount, $scope.deliveryType, $scope.selectedCurrency);
 
 
                 }, function (err) {
@@ -118,5 +123,8 @@ app.controller('pricingController', ['$rootScope', '$scope', 'pricingService', '
         }
 
 
+        $scope.currencyChange = function () {
+           $scope.getPriceQuote($scope.wordCount, $scope.deliveryType, $scope.selectedCurrency);
+        }
     }]);
  

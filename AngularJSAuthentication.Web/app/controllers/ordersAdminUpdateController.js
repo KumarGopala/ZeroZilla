@@ -30,8 +30,8 @@ app.controller('ordersAdminUpdateController', ['$scope', 'ordersAdminUpdateServi
                 "OrderId": ID, "JobStatus": $scope.orders[0].jobStatus
             };
 
-            $http.put(
-                serviceBase + "api/Orders",
+            $http.post(
+                serviceBase + "api/Orders/update",
                 JSON.stringify(totaldata),
                 {
                     headers: {
@@ -39,21 +39,11 @@ app.controller('ordersAdminUpdateController', ['$scope', 'ordersAdminUpdateServi
                     }
                 }
             ).success(function (data) {
-
-                //$location.path("/OrderAdmin");
+                
+                $location.path("/Order/all");
                 $location.path('/orderAdmin');
-
 
             });
         }
 
-
-
-
-
-        //$scope.Download = function () {
-        //    serviceBase + 'api/PriceQuote/price/' 
-        //    http://localhost:26264/Uploads/testDoc-20180317121755.doc
-
-        //}
     }]);
