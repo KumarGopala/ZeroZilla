@@ -26,7 +26,7 @@ namespace ZeroZilla.API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("price/{wordCount}/{deliveryType}/{currency}")]
-        public async Task<IHttpActionResult> Get(int wordCount, string deliveryType, string currency="USD")
+        public async Task<IHttpActionResult> Get(int wordCount, string deliveryType, string currency = "USD")
         {
             if (wordCount < 0 || string.IsNullOrWhiteSpace(deliveryType))
             {
@@ -142,14 +142,14 @@ namespace ZeroZilla.API.Controllers
 
                     Document doc = new Document();
                     doc.LoadFromFile(file.LocalFileName, FileFormat.Docx2010);
-                    count = doc.BuiltinDocumentProperties.WordCount;
+                    count = doc.BuiltinDocumentProperties.WordCount - 3;
                     string displayFileName = file.Headers.ContentDisposition.FileName.ToString().Replace("\"", "");
 
 
                     // post displayfilename and filename to db
                 }
 
-                
+
 
                 //return Ok(count);
 

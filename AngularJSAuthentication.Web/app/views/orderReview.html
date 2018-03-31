@@ -9,7 +9,10 @@
                     <td>
                         File Name:
                     </td>
-                    <td><a target='_blank' href='{{serviceBase}}Uploads/{{StoredFilename}}'>{{DisplayFileName}}</a></td>
+                    <td>
+                        <a target='_blank' href='{{serviceBase}}Uploads/{{StoredFilename}}'>{{DisplayFileName}}</a>    <input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true">
+                        <button type="button" class="btn btn-default btn-success" data-ng-click="uploadFiles()">Upload</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>
