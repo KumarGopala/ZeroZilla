@@ -1,12 +1,20 @@
 ﻿'use strict';
 app.controller('pricingController', ['$rootScope', '$scope', '$http', 'ngAuthSettings', 'authService', '$location',
-    "$window", "Upload","localStorageService",
-function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $window, Upload,localStorageService) {
-         var cnt = $scope.wordCount;
+    "$window", "Upload", "localStorageService",
+    function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $window, Upload, localStorageService) {
+        var cnt = $scope.wordCount;
+
+
+        //$scope.deliveryType = "Standard Delivery";
+
         $scope.pricing = [];
         $scope.files = [];
         $scope.selectedCurrency = "USD";
         var serviceBase = ngAuthSettings.apiServiceBaseUri;
+
+
+
+
         $scope.wordCount = localStorageService.get('wordCount');
         $scope.deliveryType = localStorageService.get('deliveryType');
         $scope.PriceQuote = localStorageService.get('PriceQuote');
@@ -14,7 +22,14 @@ function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $wi
         localStorageService.remove("deliveryType");
         localStorageService.remove("wordCount");
 
+
+
+
+        $scope.loading = false;
         $scope.GetPrice = function (wordCount, deliveryType) {
+
+
+
 
             var files = $scope.files;
             if (deliveryType == undefined) {
@@ -22,25 +37,41 @@ function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $wi
                 return;
             }
 
-            if (files[0]==undefined) {
+            if (files[0] == undefined) {
                 if (wordCount == undefined) {
                     alert("Please upload files or Enter word count");
                     return;
                 }
-                
-                $scope.getPriceQuote(wordCount, deliveryType, $scope.selectedCurrency);
+
+                $scope.getPriceQuote(wordCount, deliveryType, $scope.currencySelected.label);
             }
             else {
                 $scope.uploadFiles();
             }
         }
 
-        $scope.currencyList = ["USD", "EUR"];
+        //$scope.currencyList = ["USD", "GBP"];
 
-        $scope.getPriceQuote = function (wordCount, deliveryType, currency) {                     
-            $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType +'/' + currency).then(function (results) {                
+
+
+        $scope.currencyList = [{
+            value: '$',
+            label: 'USD'
+        }, {
+            value: '£',
+            label: 'GBP'
+            }];
+
+        $scope.currencySelected = $scope.currencyList[0];
+
+        $scope.getPriceQuote = function (wordCount, deliveryType, currency) {
+
+
+            debugger;
+
+            $http.get(serviceBase + 'api/PriceQuote/price/' + wordCount + '/' + deliveryType + '/' + currency).then(function (results) {
                 $scope.PriceQuote = results.data;
-            }, function (error) {                
+            }, function (error) {
                 $scope.PriceQuote = 0;
             });
 
@@ -59,8 +90,7 @@ function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $wi
 
         $scope.PlaceOrder = function () {
 
-            if ($scope.PriceQuote == undefined || $scope.PriceQuote < 1)
-            {
+            if ($scope.PriceQuote == undefined || $scope.PriceQuote < 1) {
                 alert("Please enter word count and click GO to proceed");
                 return;
             }
@@ -69,7 +99,7 @@ function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $wi
                 alert("Please enter word count to proceed");
                 return;
             }
-           if ($scope.deliveryType == undefined) {
+            if ($scope.deliveryType == undefined) {
                 alert("Please select Delivery Type");
                 return;
             }
@@ -79,7 +109,7 @@ function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $wi
             $scope.pricing.deliveryType = $scope.deliveryType;
             $scope.pricing.PriceQuote = $scope.PriceQuote;
 
-            $rootScope.pricing = $scope.pricing;            
+            $rootScope.pricing = $scope.pricing;
             if (!authService.authentication.isAuth) {
                 localStorageService.set('wordCount', $scope.pricing.wordCount);
                 localStorageService.set('deliveryType', $scope.pricing.deliveryType);
@@ -92,27 +122,27 @@ function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $wi
 
         }
 
- 
 
-        $scope.uploadFiles =   function() {
-            
+
+        $scope.uploadFiles = function () {
+
             var files = $scope.files;
             //vm.spinner.active = true;
             Upload.upload({
-                url: serviceBase +"api/PriceQuote/files",
+                url: serviceBase + "api/PriceQuote/files",
                 data: { file: files }
             })
                 .then(function (response) {
-                    
+
 
                     $scope.filename = "Uploaded files : " + files[0].name;
                     $rootScope.StoredFilename = response.data.docs[0].name;
                     $rootScope.DisplayFilename = files[0].name;
 
-                    $scope.wordCount =  response.data.counts;
+                    $scope.wordCount = response.data.counts;
 
-                    
-                    $scope.getPriceQuote($scope.wordCount, $scope.deliveryType, $scope.selectedCurrency);
+
+                    $scope.getPriceQuote($scope.wordCount, $scope.deliveryType, $scope.currencySelected.label);
 
 
                 }, function (err) {
@@ -124,7 +154,8 @@ function ($rootScope, $scope, $http, ngAuthSettings, authService, $location, $wi
 
 
         $scope.currencyChange = function () {
-           $scope.getPriceQuote($scope.wordCount, $scope.deliveryType, $scope.selectedCurrency);
+
+
+            $scope.getPriceQuote($scope.wordCount, $scope.deliveryType, $scope.currencySelected.label);
         }
     }]);
- 

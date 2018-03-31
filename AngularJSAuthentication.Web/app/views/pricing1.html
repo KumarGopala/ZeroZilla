@@ -23,7 +23,9 @@
             </div><!--end of row-->
             <br>
             <!--=====================================-->
-
+            <div class="loading" ng-if="loading == true">
+                <img src="content/images/loading.gif" />
+            </div>
             <div class="row row-eq-height">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="step-box">
@@ -64,7 +66,7 @@
                                         <!--<input type="button"value="upload">
                                         <input id="upload-file-selector" type="file">-->
                                         <input type="file" id="newPhotos" class="uploadFile" accept=".doc,.docx" ngf-select ng-model="files" ngf-multiple="true"
-                                               style="position: absolute; right: 0px; margin: 0px; padding: 0px; font-size: 480px; font-family: sans-serif; cursor: pointer; height: 100%;">
+                                               style="position: absolute; right: 0px; margin: 0px; padding: 0px; font-size: 480px; font-family: sans-serif; cursor: pointer; height: 100%;outline:none;">
                                         <!--<input name="upload-file-selector" type="file">-->
                                         <i class="fa_icon icon-upload-alt margin-correction"></i>Upload file
                                     </label>
@@ -82,16 +84,16 @@
                             <h2 class="heading-1">STEP 2</h2>
                         </div><!--end of step header-->
 
-                        <div class="step-content">
+                        <div class="step-content" ng-init="deliveryType='Standard Delivery'">
 
                             <div class="form-group text-center">
-                                <h3 class="heading-1">Choose Delivery Type</h3>
+                                <h3 class="heading-1">Choose Service Type</h3>
                             </div><!--end of form group-->
                             <br>
                             <div class="form-group has-feedback">
                                 <label class="input-group">
                                     <span class="input-group-addon">
-                                        <input type="radio" name="Express" value="Express Delivery" data-ng-model="deliveryType" />
+                                        <input type="radio" name="Express" value="Express Delivery" ng-model="deliveryType" />
                                     </span>
                                     <div class="form-control form-control-static">
                                         Express Delivery
@@ -103,7 +105,7 @@
                             <div class="form-group has-feedback ">
                                 <label class="input-group">
                                     <span class="input-group-addon">
-                                        <input type="radio" name="Standard" checked="checked" value="Standard Delivery" data-ng-model="deliveryType" />
+                                        <input type="radio" name="Standard" ng-checked="true" value="Standard Delivery" ng-model="deliveryType" />
                                     </span>
                                     <div class="form-control form-control-static">
                                         Standard Delivery
@@ -115,10 +117,22 @@
                             <div class="form-group has-feedback ">
                                 <label class="input-group">
                                     <span class="input-group-addon">
-                                        <input type="radio" name="Easy" value="Easy Delivery" data-ng-model="deliveryType" />
+                                        <input type="radio" name="Easy" value="Easy Delivery" ng-model="deliveryType" />
                                     </span>
                                     <div class="form-control form-control-static">
                                         Easy Delivery
+                                    </div>
+                                    <span class="glyphicon form-control-feedback "></span>
+                                </label>
+                            </div><!--end of form group-->
+
+                            <div class="form-group has-feedback ">
+                                <label class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="radio" name="Premium" value="Work From Scratch - Premium Service" ng-model="deliveryType" />
+                                    </span>
+                                    <div class="form-control form-control-static" style="padding: 5px 0px;">
+                                        Work From Scratch - Premium Service
                                     </div>
                                     <span class="glyphicon form-control-feedback "></span>
                                 </label>
@@ -131,24 +145,30 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="step-box">
                         <div class="step-header">
-                            <h2 class="heading-1">STEP 3</h2>
+                            <h2 class="heading-1 hide">STEP 3</h2>
                         </div><!--end of step header-->
 
                         <div class="step-content">
 
                             <div class="form-group text-center">
-                                <h3 class="heading-1">Get Price Quote</h3>
+                                <h3 class="heading-1">Your Quote</h3>
                             </div><!--end of form group-->
                             <br>
-                            <div class="form-group">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="Price" data-ng-model="PriceQuote">
-                                <select ng-model="selectedCurrency" ng-options="x for x in currencyList" ng-change="currencyChange()">
-                                    
-                                </select>
+                            <div class="form-group" ng-init="selectedCurrency.value='$'">
+                                <div class="col-xs-7">
+                                    <input type="text" class="form-control" readonly="readonly" placeholder="Price" value="{{PriceQuote| currency:currencySelected.value}}">
+                                </div>
+                                <div class="col-xs-5">
+                                    <select ng-model="currencySelected" ng-change="currencyChange()" style="border: 1px solid #2d97c5;box-shadow: none;padding: 0;margin-left: 5px;height: 30px;"
+                                            ng-options="currency as currency.label for currency in currencyList">
+                                        > <!--ng-options="x for x in currencyList"-->
+                                        <!--<option selected value="$">&nbsp;USD</option>
+                                        <option value="£">&nbsp;GBP</option>-->
+                                    </select>
+                                </div>
                             </div><!--end of form group-->
-
                             <div class="form-group">
-                                <button type="button" class="btn btn-success submit"  data-ng-click="PlaceOrder()">SUBMIT</button>
+                                <button type="button" class="btn btn-success submit" data-ng-click="PlaceOrder()">Buy Now</button>
                             </div><!--end of form group-->
 
                         </div><!--end of step content-->

@@ -50,7 +50,7 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
 
 
     $scope.uploadFiles = function () {
-        debugger;
+        
         var files = $scope.files;
         //vm.spinner.active = true;
         Upload.upload({
@@ -77,7 +77,7 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
 
 
     $scope.doCheckout = function (token) {
-        debugger;
+        
 
 
         alert("Got Stripe token: " + token.id);

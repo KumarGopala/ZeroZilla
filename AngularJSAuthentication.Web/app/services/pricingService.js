@@ -4,7 +4,7 @@ app.factory('pricingService', ['$http', 'ngAuthSettings', function ($http, ngAut
     var serviceBase = ngAuthSettings.apiServiceBaseUri;
 
     var pricingServiceFactory = {};
-    //debugger;
+    //
     //var wordCount = $scope.wordCount;
     //var deliveryType = $scope.deliveryType;
 

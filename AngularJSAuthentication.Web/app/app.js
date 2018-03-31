@@ -1,4 +1,4 @@
-﻿var app = angular.module('AngularAuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'stripe.checkout', 'ngFileUpload']);
+﻿var app = angular.module('AngularAuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'stripe.checkout', 'ngFileUpload', 'angularUtils.directives.dirPagination']);
 
 
 app.config(function ($routeProvider) {
@@ -214,3 +214,10 @@ app.run(['authService', function (authService) {
 }]);
 
 
+app.run(function($rootScope, $location){
+  $rootScope.$on('$routeChangeStart', function(event, next, current){
+    if ($location.path() != '/home') {
+      $rootScope.hideit = true;
+    };
+  });
+});

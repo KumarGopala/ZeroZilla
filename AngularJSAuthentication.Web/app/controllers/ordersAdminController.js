@@ -1,6 +1,9 @@
 ﻿'use strict';
 app.controller('ordersAdminController', ['$scope', 'ordersAdminService', 'ngAuthSettings', function ($scope, ordersAdminService, ngAuthSettings) {
 
+	$scope.currentPage = 1;
+    $scope.pageSize = 10;
+    
     $scope.orders = [];
 
     $scope.serviceBase = ngAuthSettings.apiServiceBaseUri;

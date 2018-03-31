@@ -1,32 +1,51 @@
 ﻿<!--</div></div><div class="clearfix"></div>-->
 <div class="clearfix"></div>
 <div class="container userpage">
+
     <div class=" row">
 
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="userrht">
-                <h2>Admin Orders Page</h2>
+                <h2 style="font-size: 22px; font-weight: 600; margin-bottom: 40px !important;" >Admin Orders Page</h2>
+                <div class="row">
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="from-group">
+                            <input type="text" name="" class="form-control" ng-model="search.orderid" placeholder="Filter By Order Id" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="from-group">
+                            <input type="text" name="" class="form-control" ng-model="search.users" placeholder="Filter By Users" />
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <br/>
                 <div class="clearfix"></div>
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <td width="47" align="center"><strong>Order ID</strong></td>
-                            <td width="60" align="center"><strong>Order Date</strong></td>
-                            <td width="85" align="left"><strong>File Name</strong></td>
-                            <td width="50" align="center"><strong>Quote</strong></td>
-                            <td width="70" align="center"><strong>Payment Status</strong></td>
-                            <td width="95" align="center"><strong>Job Status</strong></td>
-                            <td width="95" align="center"><strong>Document Type</strong></td>
-                            <td width="95" align="center"><strong>English Style</strong></td>
-                            <td width="95" align="center"><strong>Sub Category</strong></td>
-                            <td width="95" align="center"><strong>Delivery Type</strong></td>
-                            <td width="95" align="center"><strong>Users</strong></td>
-                            <td width="95" align="center"><strong>Word Count</strong></td>
+                            <th><strong>Order ID</strong></th>
+                            <th><strong>Order Date</strong></th>
+                            <th><strong>File Name</strong></th>
+                            <th><strong>Quote</strong></th>
+                            <th><strong>Payment Status</strong></th>
+                            <th><strong>Job Status</strong></th>
+                            <th><strong>Document Type</strong></th>
+                            <th><strong>English Style</strong></th>
+                            <th><strong>Sub Category</strong></th>
+                            <th><strong>Delivery Type</strong></th>
+                            <th><strong>Users</strong></th>
+                            <th><strong>Word Count</strong></th>
+                            <th><strong>View</strong></th>
                             <!--<td width="59" align="center"><strong>File Details</strong></td>-->
                             <!--<td width="61" align="center"><strong>Action</strong></td>-->
                         </tr>
-                        <tr ng-repeat="o in orders ">
-                            <td align="left"><a href='#/orderAdminUpdate?ID={{o.orderID}}'>{{o.orderID}}</a></td>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="o in orders | filter : {orderID : search.orderid, userName : search.users} | itemsPerPage: pageSize" current-page="currentPage">
+                            <td align="left">{{o.orderID}}</td>
                             <td align="center">{{o.orderDate |date}}</td>
                             <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFilename}}'>{{o.storedFilename}}</a></td>
                             <td align="center">{{o.priceQuoted | currency}}</td>
@@ -38,16 +57,22 @@
                             <td align="center">{{o.deliveryType}}</td>
                             <td align="center">{{o.userName}}</td>
                             <td align="center">{{o.wordCount}}</td>
+                            <td align="center"> <a href="#/orderAdminUpdate?ID={{o.orderID}}"> <i class="fa fa-eye"></i> </a> </td>
 
                         </tr>
 
-                      
+                        </tbody>
 
                     </table>
 
 
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <dir-pagination-controls class="pull-right" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
         </div>
     </div>
 </div>
