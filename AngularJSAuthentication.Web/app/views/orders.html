@@ -36,7 +36,7 @@
                             <td align="center">{{o.orderDate }}</td>
                             <td align="center">{{o.orderDetailID}}</td>
                             <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFileName}}'>{{o.displayFileName}}</a></td>
-                            <td align="center">{{o.priceQuote}}</td>
+                            <td align="center">{{o.priceQuote| currency : o.currency}}</td>
                             <td align="center">{{o.paymentStatus}}</td>
                             <td align="center">{{o.jobStatus}}</td>
 

@@ -41,6 +41,7 @@ namespace ZeroZilla.API.Models
         public string PaymentStatus{ get; set; }
         public string JobStatus{ get; set; }
         public string Action { get; set; }
+        public string Currency { get; set; }
 
     }
 }
