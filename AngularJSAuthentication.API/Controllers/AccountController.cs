@@ -156,7 +156,7 @@ namespace ZeroZilla.API.Controllers
             }
 
             //generate access token response
-            var accessTokenResponse = GenerateLocalAccessTokenResponse(model.UserName);
+            var accessTokenResponse = GenerateLocalAccessTokenResponse(model.UserName, model.Email);
 
             return Ok(accessTokenResponse);
         }
@@ -188,7 +188,7 @@ namespace ZeroZilla.API.Controllers
             }
 
             //generate access token response
-            var accessTokenResponse = GenerateLocalAccessTokenResponse(user.UserName);
+            var accessTokenResponse = GenerateLocalAccessTokenResponse(user.UserName, user.Email);
 
             return Ok(accessTokenResponse);
 
@@ -353,7 +353,7 @@ namespace ZeroZilla.API.Controllers
             return parsedToken;
         }
 
-        private JObject GenerateLocalAccessTokenResponse(string userName)
+        private JObject GenerateLocalAccessTokenResponse(string userName, string email)
         {
 
             var tokenExpiration = TimeSpan.FromDays(1);
@@ -375,6 +375,7 @@ namespace ZeroZilla.API.Controllers
 
             JObject tokenResponse = new JObject(
                                         new JProperty("userName", userName),
+                                        new JProperty("email", email),
                                         new JProperty("access_token", accessToken),
                                         new JProperty("token_type", "bearer"),
                                         new JProperty("expires_in", tokenExpiration.TotalSeconds.ToString()),

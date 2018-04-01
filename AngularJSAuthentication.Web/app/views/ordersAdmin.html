@@ -47,8 +47,8 @@
                         <tr dir-paginate="o in orders | filter : {orderID : search.orderid, userName : search.users} | itemsPerPage: pageSize" current-page="currentPage">
                             <td align="left">{{o.orderID}}</td>
                             <td align="center">{{o.orderDate |date}}</td>
-                            <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFilename}}'>{{o.storedFilename}}</a></td>
-                            <td align="center">{{o.priceQuoted | currency}}</td>
+                            <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFilename}}'>{{o.displayFilename}}</a></td>
+                            <td align="center">{{o.priceQuoted | currency :   o.currency}}</td>
                             <td align="center">{{o.paymentStatus}}</td>
                             <td align="center">{{o.jobStatus}}</td>
                             <td align="center">{{o.documentType}}</td>

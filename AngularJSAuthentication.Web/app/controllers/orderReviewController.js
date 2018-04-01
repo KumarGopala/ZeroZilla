@@ -1,6 +1,6 @@
 ﻿'use strict';
-app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAuthSettings', '$location', "Upload",
-    function ($rootScope, $scope, $http, ngAuthSettings, $location, Upload) {
+app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAuthSettings', '$location', "Upload", 'authService',
+    function ($rootScope, $scope, $http, ngAuthSettings, $location, Upload, authService) {
 
 
         var serviceBase = ngAuthSettings.apiServiceBaseUri;
@@ -27,9 +27,12 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
 
         $scope.serviceBase = serviceBase;
 
+        
+        $scope.userName = authService.authentication.userName;
+        $scope.email = authService.authentication.email;
 
         $scope.orderReview = function () {
-           
+
 
             var totaldata = {
                 "DocumentType": $rootScope.order.DocumentType, "SubCategory": $rootScope.order.SubCategory,
@@ -56,8 +59,8 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
             ).success(function (data) {
                 $location.path('/orders');
 
-                }).error(function (err) {
-                    console.log(err);
+            }).error(function (err) {
+                console.log(err);
             });
         }
 
@@ -74,7 +77,7 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
             })
                 .then(function (response) {
 
-                   
+
                     //$scope.filename = "Uploaded files : " + files[0].name;
                     $scope.StoredFilenameReference = response.data.docs[0].name;
                     $scope.DisplayFileNameReference = files.name;
