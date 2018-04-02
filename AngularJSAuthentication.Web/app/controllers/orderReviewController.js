@@ -40,7 +40,7 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
                 "Requirments": $rootScope.order.Requirments,
                 "StoredFilename": $rootScope.StoredFilename, "PriceQuoted": $scope.PriceQuote, "WordCount": $scope.wordCount, "DeliveryType": $scope.deliveryType,
                 "ReferenceStoredFilename": $scope.StoredFilenameReference, "ReferenceDisplayFilename": $scope.DisplayFileNameReference
-                , "Currency": $scope.currencySelected.label
+                , "Currency": $scope.currencySelected.label, "DisplayFilename": $scope.DisplayFileName
 
 
             };
@@ -114,9 +114,9 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
             $scope.uploadFiles();
 
             //alert("Got Stripe token: " + token.id);
-            var price = $scope.PriceQuote * 100;
+            $scope.Price= $scope.PriceQuote * 100;
             var data = {
-                "StripeEmail": token.email, "Token": token.id, "Price": price
+                "StripeEmail": token.email, "Token": token.id, "Price": $scope.Price
             };
 
             $http.post(

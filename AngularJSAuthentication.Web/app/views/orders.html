@@ -20,27 +20,28 @@
                 <div class="table-responsive">
                     <table class="table table-striped ">
                         <thead>
-                        <tr>
-                            <th width="60" align="center"><strong>Order Date</strong></th>
-                            <th width="47" align="center"><strong>Order ID</strong></th>
-                            <th width="85" align="left"><strong>File Name</strong></th>
-                            <th width="50" align="center"><strong>Quote</strong></th>
-                            <th width="70" align="center"><strong>Payment Status</strong></th>
-                            <th width="95" align="center"><strong>Job Status</strong></th>
-                            <!--<td width="59" align="center"><strong>File Details</strong></td>-->
-                            <!--<td width="61" align="center"><strong>Action</strong></td>-->
-                        </tr>
+                            <tr>
+                                <th width="60" align="center"><strong>Order Date</strong></th>
+                                <th width="47" align="center"><strong>Order ID</strong></th>
+                                <th width="85" align="left"><strong>File Name</strong></th>
+                                <th width="85" align="left"><strong>Reference File Name</strong></th>
+                                <th width="50" align="center"><strong>Quote</strong></th>
+                                <th width="70" align="center"><strong>Payment Status</strong></th>
+                                <th width="95" align="center"><strong>Job Status</strong></th>
+                                <!--<td width="59" align="center"><strong>File Details</strong></td>-->
+                                <!--<td width="61" align="center"><strong>Action</strong></td>-->
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr dir-paginate="o in orders | itemsPerPage: pageSize" current-page="currentPage">
-                            <td align="center">{{o.orderDate }}</td>
-                            <td align="center">{{o.orderDetailID}}</td>
-                            <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFileName}}'>{{o.displayFileName}}</a></td>
-                            <td align="center">{{o.priceQuote| currency : o.currency}}</td>
-                            <td align="center">{{o.paymentStatus}}</td>
-                            <td align="center">{{o.jobStatus}}</td>
-
-                        </tr>
+                            <tr dir-paginate="o in orders | itemsPerPage: pageSize" current-page="currentPage">
+                                <td align="center">{{o.orderDate }}</td>
+                                <td align="center">{{o.orderDetailID}}</td>
+                                <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.storedFileName}}'>{{o.displayFileName}}</a></td>
+                                <td align="left"><a target='_blank' href='{{serviceBase}}Uploads/{{o.referenceStoredFilename}}'>{{o.referenceDisplayFilename}}</a></td>
+                                <td align="center">{{o.priceQuote| currency : o.currency}}</td>
+                                <td align="center">{{o.paymentStatus}}</td>
+                                <td align="center">{{o.jobStatus}}</td>
+                            </tr>
                        </tbody>
                         <!--<tr>
                             <td align="center">10:20 PM, 15 Mar 2018</td>
