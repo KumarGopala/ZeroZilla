@@ -42,7 +42,7 @@ namespace ZeroZilla.API.Controllers
             {
                 Amount = payment.Price,
                 Description = "Zero Zilla",
-                Currency = "usd",
+                Currency = payment.Currency,
                 CustomerId = customer.Id
                 
             });

@@ -12,5 +12,7 @@ namespace ZeroZilla.API.Models
         public string Token { get; set; }
 
         public int Price { get; set; }
+
+        public string Currency { get; set; }
     }
 }

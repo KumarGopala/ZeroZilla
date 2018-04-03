@@ -5,7 +5,7 @@ app.controller('associateController', ['$scope', '$location','$timeout','authSer
     $scope.message = "";
 
     $scope.registerData = {
-        userName: authService.externalAuthData.userName,
+        userName: authService.externalAuthData.email,
         provider: authService.externalAuthData.provider,
         externalAccessToken: authService.externalAuthData.externalAccessToken,
         phone: authService.externalAuthData.phone,

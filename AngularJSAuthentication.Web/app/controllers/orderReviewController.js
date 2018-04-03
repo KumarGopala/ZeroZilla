@@ -116,7 +116,7 @@ app.controller('orderReviewController', ['$rootScope', '$scope', '$http', 'ngAut
             //alert("Got Stripe token: " + token.id);
             $scope.Price= $scope.PriceQuote * 100;
             var data = {
-                "StripeEmail": token.email, "Token": token.id, "Price": $scope.Price
+                "StripeEmail": token.email, "Token": token.id, "Price": $scope.Price, "Currency": $scope.currencySelected.label,
             };
 
             $http.post(
